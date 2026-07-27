@@ -17,8 +17,7 @@ export const paperTitle = {
 
 export const authorName = {
   en: "Liu-Jung Lai",
-  // 中文姓名待作者確認後填入（見 About 頁）
-  zh: "Liu-Jung Lai",
+  zh: "賴柳蓉",
 } as const;
 
 export const affiliation = {

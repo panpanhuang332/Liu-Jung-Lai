@@ -109,11 +109,11 @@ export default async function AboutPage({
               {c.nameLabel}
             </dt>
             <dd className="mt-1">
-              {authorName.en}
-              <span className="text-muted">
-                {locale === "zh" ? "（中文姓名" : " (Chinese name "}
-                {c.pendingNote.replace(/[（()）]/g, "")}
-                {locale === "zh" ? "）" : ")"}
+              {authorName.zh}
+              <span lang="en" className="text-muted">
+                {"（"}
+                {authorName.en}
+                {"）"}
               </span>
             </dd>
           </div>
