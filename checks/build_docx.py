@@ -57,8 +57,12 @@ styles.write_text(s, encoding="utf-8")
 # Page geometry: A4, 2.54 cm (=1440 twips) margins, on every sectPr
 doc = tmp / "word/document.xml"
 d = doc.read_text(encoding="utf-8")
-d = re.sub(r"<w:pgSz[^/]*/>", '<w:pgSz w:w="11906" w:h="16838"/>', d)
-d = re.sub(r"<w:pgMar[^/]*/>",
+SECT = ('<w:sectPr><w:pgSz w:w="11906" w:h="16838"/>'
+        '<w:pgMar w:top="1440" w:right="1440" w:bottom="1440" w:left="1440" '
+        'w:header="720" w:footer="720" w:gutter="0"/></w:sectPr>')
+d = re.sub(r"<w:sectPr\s*/>", SECT, d)
+d = re.sub(r"<w:pgSz [^>]*/>", '<w:pgSz w:w="11906" w:h="16838"/>', d)
+d = re.sub(r"<w:pgMar [^>]*/>",
            '<w:pgMar w:top="1440" w:right="1440" w:bottom="1440" w:left="1440" '
            'w:header="720" w:footer="720" w:gutter="0"/>', d)
 doc.write_text(d, encoding="utf-8")

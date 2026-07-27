@@ -71,14 +71,13 @@ def strip_tables_en(text: str):
             # rows = blank-line-separated groups of non-separator lines
             groups, cur = [], []
             for bl in block:
-                if re.match(r"^\s*-+(\s+-+)+\s*$", bl):
-                    continue
-                if bl.strip() == "":
+                if re.match(r"^\s*-+(\s+-+)+\s*$", bl) or bl.strip() == "":
+                    # the header/body separator line is also a row boundary
                     if cur:
                         groups.append(cur)
                         cur = []
-                else:
-                    cur.append(bl)
+                    continue
+                cur.append(bl)
             if cur:
                 groups.append(cur)
             tables.append((len(groups), cols))
@@ -139,9 +138,9 @@ def citations(text: str):
     # narrative: Surname (1995) / Surname et al. (2014) / Surname and Surname (1994)
     for m in re.finditer(r"([A-Z][A-Za-z''\-]+)(?:\s+(?:and|&)\s+([A-Z][A-Za-z''\-]+))?(?:['']s)?(?:\s+et al\.)?\s*\((\d{4})\)", text):
         year = m.group(3)
-        pairs.add((m.group(1), year))
+        pairs.add((re.sub(r"[''’]s$", "", m.group(1)), year))
         if m.group(2):
-            pairs.add((m.group(2), year))
+            pairs.add((re.sub(r"[''’]s$", "", m.group(2)), year))
     # parenthetical blocks
     for m in re.finditer(r"\(([^()]*\b\d{4}[a-z]?\b[^()]*)\)", text):
         inner = m.group(1)
@@ -215,8 +214,9 @@ for entry in mapping:
                 missing.append(f"{surname} ({year})")
         if missing:
             issues.append(("FAIL", "引註缺漏：" + "、".join(missing)))
-    # PRC vocabulary
-    hits = [t for t in PRC_TERMS if t in zh_text]
+    # PRC vocabulary (算法 must not match inside 演算法)
+    hits = [t for t in PRC_TERMS
+            if (re.search(r"(?<!演)算法", zh_text) if t == "算法" else t in zh_text)]
     if hits:
         issues.append(("WARN", "疑似非臺灣用語：" + "、".join(sorted(set(hits)))))
     for variant, msg in FORBIDDEN_VARIANTS.items():
