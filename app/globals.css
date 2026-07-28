@@ -119,6 +119,74 @@ body {
   display: block;
 }
 
+/* ---------- interactive loop diagram ---------- */
+
+.diag {
+  color: rgb(var(--c-ink));
+}
+.diag-head {
+  font-weight: 700;
+  font-size: 34px;
+  fill: rgb(var(--c-ink));
+}
+.diag-edge {
+  stroke: rgb(var(--c-ink));
+  stroke-width: 2.5;
+  fill: none;
+  color: rgb(var(--c-ink));
+}
+.diag-dotted {
+  stroke: rgb(var(--c-muted));
+  stroke-dasharray: 3 8;
+  color: rgb(var(--c-muted));
+}
+.diag-dashed {
+  stroke-dasharray: 14 10;
+}
+.diag-label {
+  fill: rgb(var(--c-muted));
+}
+.diag-node rect {
+  fill: rgb(var(--c-paper));
+  stroke: rgb(var(--c-ink));
+  stroke-width: 2.5;
+}
+.diag-node text {
+  fill: rgb(var(--c-ink));
+}
+.diag-boundary text {
+  fill: rgb(var(--c-muted));
+}
+.diag-node:hover rect,
+.diag-node:focus-visible rect {
+  stroke: rgb(var(--c-accent));
+}
+.diag-sel rect {
+  stroke: rgb(var(--c-accent)) !important;
+  stroke-width: 4;
+}
+.diag-sel text {
+  fill: rgb(var(--c-accent));
+}
+.diag-dim {
+  opacity: 0.22;
+}
+.diag-hl.diag-edge {
+  stroke: rgb(var(--c-accent));
+  color: rgb(var(--c-accent));
+  stroke-width: 4;
+}
+.diag-hl.diag-label {
+  fill: rgb(var(--c-accent));
+}
+.diag-hl.diag-node rect {
+  stroke: rgb(var(--c-accent));
+  stroke-width: 3.5;
+}
+.diag-hl.diag-boundary text {
+  fill: rgb(var(--c-accent));
+}
+
 /* reference list: hanging indent + jump-target highlight */
 .ref-entry {
   padding-left: 2ch;
