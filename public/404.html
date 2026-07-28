@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>404 — Page not found</title>
+<meta name="robots" content="noindex">
+<script>
+// Compute the site base ("" locally, "/<repo>" on GitHub Pages) so links work in both.
+(function () {
+  var seg = location.pathname.split("/")[1] || "";
+  var base = (seg && seg !== "zh" && seg !== "en") ? "/" + seg : "";
+  document.addEventListener("DOMContentLoaded", function () {
+    var links = document.querySelectorAll("a[data-path]");
+    for (var i = 0; i < links.length; i++) {
+      links[i].setAttribute("href", base + links[i].getAttribute("data-path"));
+    }
+  });
+})();
+</script>
+<style>
+body{font-family:system-ui,sans-serif;background:#faf9f6;color:#1c1b19;display:grid;place-items:center;min-height:100vh;margin:0;text-align:center}
+a{color:#85202e}
+p{line-height:1.8}
+</style>
+</head>
+<body>
+<div>
+<h1 style="font-weight:600">404</h1>
+<p>找不到此頁面。 / Page not found.</p>
+<p><a data-path="/zh/" href="/zh/">回中文首頁</a>&nbsp;·&nbsp;<a data-path="/en/" href="/en/">English home</a></p>
+</div>
+</body>
+</html>

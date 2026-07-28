@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Liu-Jung Lai</title>
+<meta name="robots" content="noindex">
+<link rel="alternate" hreflang="zh-Hant" href="zh/">
+<link rel="alternate" hreflang="en" href="en/">
+<link rel="alternate" hreflang="x-default" href="zh/">
+<noscript><meta http-equiv="refresh" content="0; url=zh/"></noscript>
+<script>
+(function () {
+  var langs = navigator.languages || [navigator.language || "zh"];
+  var target = "zh/";
+  for (var i = 0; i < langs.length; i++) {
+    var l = String(langs[i]).toLowerCase();
+    if (l.indexOf("zh") === 0) { target = "zh/"; break; }
+    if (l.indexOf("en") === 0) { target = "en/"; break; }
+  }
+  location.replace(target + location.hash);
+})();
+</script>
+<style>
+body{font-family:system-ui,sans-serif;background:#faf9f6;color:#1c1b19;display:grid;place-items:center;min-height:100vh;margin:0}
+a{color:#85202e}
+</style>
+</head>
+<body>
+<p><a href="zh/">中文</a>&nbsp;·&nbsp;<a href="en/">English</a></p>
+</body>
+</html>
