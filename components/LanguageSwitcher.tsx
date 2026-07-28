@@ -26,7 +26,7 @@ export default function LanguageSwitcher({
     <Link
       href={target}
       lang={other === "zh" ? "zh-Hant" : "en"}
-      aria-label={label}
+      aria-label={`${otherLabel} — ${label}`}
       className="text-sm text-muted hover:text-accent px-1 py-1"
       onClick={(e) => {
         e.preventDefault();

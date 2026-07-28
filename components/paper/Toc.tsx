@@ -12,22 +12,40 @@ export default function Toc({ items, title }: { items: TocEntry[]; title: string
       .map((i) => document.getElementById(i.id))
       .filter((el): el is HTMLElement => !!el);
     if (!headings.length) return;
+    const order = new Map(headings.map((h, i) => [h.id, i]));
+    // last observed top per heading, from observer entries only — never query
+    // layout ourselves (forced reflow is expensive on this very long page)
+    const lastTop = new Map<string, number>();
+    const inBand = new Set<string>();
     const observer = new IntersectionObserver(
       (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-        if (visible.length) {
-          setActive(visible[0].target.id);
-        } else {
-          // nothing in band: highlight the last heading above the viewport top
-          let current = "";
-          for (const h of headings) {
-            if (h.getBoundingClientRect().top < 120) current = h.id;
-            else break;
-          }
-          if (current) setActive(current);
+        for (const e of entries) {
+          lastTop.set(e.target.id, e.boundingClientRect.top);
+          if (e.isIntersecting) inBand.add(e.target.id);
+          else inBand.delete(e.target.id);
         }
+        let current = "";
+        if (inBand.size) {
+          let best = Infinity;
+          for (const id of inBand) {
+            const i = order.get(id) ?? Infinity;
+            if (i < best) {
+              best = i;
+              current = id;
+            }
+          }
+        } else {
+          // nothing in band: the last heading whose observed top is above it
+          let best = -1;
+          for (const [id, top] of lastTop) {
+            const i = order.get(id) ?? -1;
+            if (top < 120 && i > best) {
+              best = i;
+              current = id;
+            }
+          }
+        }
+        if (current) setActive(current);
       },
       { rootMargin: "-15% 0px -75% 0px" }
     );

@@ -11,7 +11,7 @@ await page.screenshot({ path: `${outDir}/paper-zh-top.png` });
 
 // TOC scroll-spy: jump to §2.4 and check highlight
 await page.click('nav a[href="#s-2-4"]');
-await page.waitForTimeout(600);
+await page.waitForTimeout(2200);
 const active = await page.getAttribute('nav a[aria-current="location"]', "href").catch(() => null);
 console.log("toc active after jump to #s-2-4:", active);
 
@@ -57,7 +57,7 @@ console.log("lightbox after Esc:", await page.locator('[role="dialog"]').count()
 
 // language switch preserves section anchor
 await page.goto(base + "/zh/paper/#s-2-4", { waitUntil: "networkidle" });
-await page.click('a[aria-label="切換語言"]');
+await page.click('a[aria-label*="切換語言"]');
 await page.waitForURL("**/en/paper/**");
 console.log("lang switch →", page.url());
 

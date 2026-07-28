@@ -16,11 +16,12 @@ function CiteLink({
   children,
 }: {
   refEntry: RefEntry;
-  children: React.ReactNode;
+  children: string;
 }) {
   const plain = refEntry.text.replace(/\*([^*]+)\*/g, "$1").replace(/\*\*/g, "");
   return (
-    <a href={`#${refEntry.id}`} className="cite" aria-label={plain}>
+    // accessible name must contain the visible text, then the full reference
+    <a href={`#${refEntry.id}`} className="cite" aria-label={`${children} — ${plain}`}>
       {children}
       <span className="cite-tip" aria-hidden="true">
         {plain}

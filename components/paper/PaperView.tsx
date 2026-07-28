@@ -1,9 +1,17 @@
 import React from "react";
+
+// Next.js statically blocks importing react-dom/server from server components;
+// this page is SSG-only, so we load it at build/render time via a dynamic
+// require that the bundler does not rewrite.
+const { renderToStaticMarkup } = (eval("require") as NodeRequire)(
+  "react-dom/server"
+) as typeof import("react-dom/server");
 import { getPaper, type Block, type BlockPair } from "@/lib/paper";
 import type { Locale } from "@/lib/i18n";
 import { renderInline } from "./Inline";
 import PaperTable from "./PaperTable";
-import FigureLightbox from "./FigureLightbox";
+import LightboxController from "./LightboxController";
+import AnchorFix from "./AnchorFix";
 
 const ui = {
   zh: {
@@ -20,9 +28,13 @@ const ui = {
   },
 } as const;
 
-function headingTag(level: number, isTitle: boolean) {
+function headingTag(level: number, isTitle: boolean, seenH2: boolean) {
   if (isTitle) return "h1" as const;
-  return (["h2", "h3", "h4", "h5"] as const)[Math.min(level - 1, 3)];
+  // front-matter sections (Abstract, PIS) are md-level-2 but appear before any
+  // md-level-1 section heading — promote them to h2 to keep heading order valid
+  const idx = Math.min(level - 1, 3);
+  if (idx > 0 && !seenH2) return "h2" as const;
+  return (["h2", "h3", "h4", "h5"] as const)[idx];
 }
 
 export default function PaperView({ locale }: { locale: Locale }) {
@@ -35,6 +47,7 @@ export default function PaperView({ locale }: { locale: Locale }) {
   const alt = (p: BlockPair): Block => (locale === "zh" ? p.en : p.zh);
 
   let seenTitle = false;
+  let seenH2 = false;
   const out: React.ReactNode[] = [];
 
   pairs.forEach((pair, i) => {
@@ -45,7 +58,9 @@ export default function PaperView({ locale }: { locale: Locale }) {
     if (b.type === "heading") {
       const isTitle = !seenTitle;
       seenTitle = true;
-      const Tag = headingTag(b.level, isTitle);
+      const Tag = headingTag(b.level, isTitle, seenH2);
+      if (Tag === "h2") seenH2 = true;
+      if (b.level === 1 && !isTitle) seenH2 = true;
       const cls = isTitle
         ? "text-3xl sm:text-[2.1rem] leading-snug font-semibold"
         : b.level === 1
@@ -62,15 +77,26 @@ export default function PaperView({ locale }: { locale: Locale }) {
     }
 
     if (b.type === "figure") {
+      // static markup; the LightboxController client component (outside this
+      // static article) delegates clicks on [data-lightbox]
       out.push(
         <div key={key} className="mt-8">
-          <FigureLightbox
-            src={b.src}
-            fullSrc="/figures/figure1-full.png"
-            alt={t.figureAlt}
-            openLabel={t.figureOpen}
-            closeLabel={t.figureClose}
-          />
+          <button
+            type="button"
+            data-lightbox="/figures/figure1-full.png"
+            aria-label={t.figureOpen}
+            className="block w-full cursor-zoom-in border border-line bg-white"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={b.src}
+              alt={t.figureAlt}
+              width={1600}
+              height={898}
+              loading="lazy"
+              className="w-full h-auto"
+            />
+          </button>
         </div>
       );
       return;
@@ -129,14 +155,22 @@ export default function PaperView({ locale }: { locale: Locale }) {
     );
   });
 
+  // The article is thousands of static nodes; serializing it once at build
+  // time and injecting it as HTML keeps React hydration out of the hot path
+  // (interactivity lives in components outside this subtree or is delegated).
+  const html = renderToStaticMarkup(<>{out}</>);
+
   return (
-    <article
-      data-paper-root
-      data-bilingual="off"
-      lang={locale === "zh" ? "zh-Hant" : "en"}
-      className="paper-prose font-serif text-ink"
-    >
-      {out}
-    </article>
+    <>
+      <article
+        data-paper-root
+        data-bilingual="off"
+        lang={locale === "zh" ? "zh-Hant" : "en"}
+        className="paper-prose font-serif text-ink"
+        dangerouslySetInnerHTML={{ __html: html }}
+      />
+      <LightboxController closeLabel={t.figureClose} alt={t.figureAlt} />
+      <AnchorFix />
+    </>
   );
 }

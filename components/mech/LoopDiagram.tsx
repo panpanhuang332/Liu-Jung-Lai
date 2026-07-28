@@ -135,7 +135,7 @@ export default function LoopDiagram({ locale }: { locale: Locale }) {
       <div className="mt-4 overflow-x-auto border border-line bg-white dark:bg-surface">
         <svg
           viewBox="0 0 1960 1100"
-          role="img"
+          role="group"
           aria-label={t.ariaDiagram}
           className="min-w-[860px] w-full h-auto diag"
           fontSize="27"

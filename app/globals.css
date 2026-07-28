@@ -26,6 +26,12 @@ html {
   scroll-behavior: smooth;
 }
 
+/* the full-paper page jumps instantly: smooth scrolling over a very long
+   lazily-laid-out document drifts, and AnchorFix double-corrects landings */
+html:has([data-paper-root]) {
+  scroll-behavior: auto;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -62,6 +68,14 @@ body {
 
 [id] {
   scroll-margin-top: 5.5rem;
+}
+
+/* long-document rendering: off-screen blocks skip style/layout, so font
+   swaps and hydration touch only the visible viewport */
+.pair,
+.ref-entry {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 160px;
 }
 
 /* bilingual pairing: secondary language hidden unless the mode is on */
