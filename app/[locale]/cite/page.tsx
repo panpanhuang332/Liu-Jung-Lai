@@ -6,6 +6,7 @@ import {
   affiliation,
   siteUrl,
   type Locale,
+  ogImage,
 } from "@/lib/i18n";
 import CopyButton from "@/components/CopyButton";
 
@@ -70,6 +71,7 @@ export async function generateMetadata({
       ...languageAlternates("/cite"),
     },
     openGraph: {
+      images: ogImage,
       title: `${c.title}｜${paperTitle.en}`,
       description: c.description,
       url: `${siteUrl}/${locale}/cite/`,

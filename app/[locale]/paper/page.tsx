@@ -7,6 +7,7 @@ import {
   orcid,
   siteUrl,
   type Locale,
+  ogImage,
 } from "@/lib/i18n";
 import { getPaper } from "@/lib/paper";
 import PaperView from "@/components/paper/PaperView";
@@ -50,6 +51,7 @@ export async function generateMetadata({
       ...languageAlternates("/paper"),
     },
     openGraph: {
+      images: ogImage,
       title: `${c.title}｜${paperTitle.en}`,
       description: c.description,
       url: `${siteUrl}/${locale}/paper/`,

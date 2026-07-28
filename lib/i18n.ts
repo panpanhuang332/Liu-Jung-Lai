@@ -15,6 +15,40 @@ export const paperTitle = {
   zh: "當賦能敘事反噬：生成式 AI 導入中的遞迴意義建構與採用回應模式",
 } as const;
 
+/** split title for the hero hierarchy (main visual title vs. subtitle) */
+export const paperTitleMain = {
+  en: "When Enablement Narratives Backfire",
+  zh: "當賦能敘事反噬",
+} as const;
+
+export const paperTitleSub = {
+  en: "Recursive Sensemaking and Modes of Adoption Response in Generative AI Implementation",
+  zh: "生成式 AI 導入中的遞迴意義建構與採用回應模式",
+} as const;
+
+/** manuscript status + version — single source, keep dates out of components */
+export const paperStatus = {
+  en: "Conceptual paper · Manuscript under review",
+  zh: "概念性論文 · 投稿審查中",
+} as const;
+
+export const paperVersion = {
+  en: "Version: July 2026",
+  zh: "版本：2026 年 7 月",
+} as const;
+
+export const authorEmail = "alison.lai19830210@gmail.com";
+
+/** shared Open Graph image (static asset, stable path) */
+export const ogImage = [
+  {
+    url: `${siteUrl}/og.png`,
+    width: 1200,
+    height: 630,
+    alt: "When Enablement Narratives Backfire — concept model and central claim",
+  },
+];
+
 export const authorName = {
   en: "Liu-Jung Lai",
   zh: "賴柳蓉",

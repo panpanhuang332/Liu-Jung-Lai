@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
-import { languageAlternates, paperTitle, siteUrl, type Locale } from "@/lib/i18n";
+import { languageAlternates, paperTitle, siteUrl, type Locale,
+  ogImage,
+} from "@/lib/i18n";
 import { getPaper } from "@/lib/paper";
 import { propMeta } from "@/lib/content/propositions";
 import PropositionsTable, { type PropRow } from "@/components/PropositionsTable";
@@ -44,6 +46,7 @@ export async function generateMetadata({
       ...languageAlternates("/propositions"),
     },
     openGraph: {
+      images: ogImage,
       title: `${c.title}｜${paperTitle.en}`,
       description: c.description,
       url: `${siteUrl}/${locale}/propositions/`,

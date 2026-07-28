@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { languageAlternates, paperTitle, siteUrl, type Locale } from "@/lib/i18n";
+import { languageAlternates, paperTitle, siteUrl, type Locale,
+  ogImage,
+} from "@/lib/i18n";
 import { modes } from "@/lib/content/modes";
 import ModesQuiz from "@/components/modes/ModesQuiz";
 
@@ -56,6 +58,7 @@ export async function generateMetadata({
       ...languageAlternates("/modes"),
     },
     openGraph: {
+      images: ogImage,
       title: `${c.title}｜${paperTitle.en}`,
       description: c.description,
       url: `${siteUrl}/${locale}/modes/`,
@@ -92,13 +95,30 @@ export default async function ModesPage({
         <p className="mt-4 max-w-prose leading-relaxed text-ink/90">{c.lead}</p>
       </header>
 
-      {/* the four modes */}
+      {/* the four modes — 2×2 visual reading guide */}
       <section className="py-10 border-b border-line" aria-labelledby="modes-h">
         <h2 id="modes-h" className="font-serif text-2xl text-ink">{c.modesTitle}</h2>
-        <div className="mt-6 grid gap-4 md:grid-cols-2">
-          {modes.map((m) => (
-            <article key={m.id} className="border border-line p-5">
+        <p className="mt-2 text-xs text-muted">
+          {locale === "zh"
+            ? "2×2 為視覺閱讀導引（教學式整理），非論文正式提出之額外模型；四欄判準取自表 3。"
+            : "The 2×2 arrangement is a visual reading guide (a teaching aid), not an additional model proposed by the paper; the four criteria come from Table 3."}
+        </p>
+        <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-px border border-line bg-line">
+          {modes.map((m, mi) => (
+            <article
+              key={m.id}
+              className={`p-5 border-l-[3px] ${
+                m.id === "genint"
+                  ? "bg-surface border-l-accent"
+                  : m.id === "defad"
+                    ? "bg-paper border-l-accent/50"
+                    : "bg-paper border-l-line"
+              }`}
+            >
               <h3 className="font-serif text-lg text-ink">
+                <span className="mr-2 font-sans text-sm text-accent" aria-hidden="true">
+                  {String(mi + 1).padStart(2, "0")}
+                </span>
                 {m.name[locale]}
                 <span lang={locale === "zh" ? "en" : "zh-Hant"} className="ml-2 text-sm text-muted font-sans">
                   {m.name[locale === "zh" ? "en" : "zh"]}

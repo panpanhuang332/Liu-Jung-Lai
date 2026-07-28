@@ -31,6 +31,10 @@ export async function generateMetadata({
       default: dict.siteName,
       template: `%s｜${authorName.en}`,
     },
+    twitter: {
+      card: "summary_large_image",
+      images: [`${siteUrl}/og.png`],
+    },
     authors: [{ name: authorName.en }],
   };
 }

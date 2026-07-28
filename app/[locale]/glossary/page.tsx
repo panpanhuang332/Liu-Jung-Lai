@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import fs from "node:fs";
 import path from "node:path";
-import { languageAlternates, paperTitle, siteUrl, type Locale } from "@/lib/i18n";
+import { languageAlternates, paperTitle, siteUrl, type Locale,
+  ogImage,
+} from "@/lib/i18n";
 import { glossaryDefs } from "@/lib/content/glossaryDefs";
 import GlossaryList, { type GlossaryRow } from "@/components/GlossaryList";
 
@@ -70,6 +72,7 @@ export async function generateMetadata({
       ...languageAlternates("/glossary"),
     },
     openGraph: {
+      images: ogImage,
       title: `${c.title}｜${paperTitle.en}`,
       description: c.description,
       url: `${siteUrl}/${locale}/glossary/`,

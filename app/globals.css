@@ -133,6 +133,77 @@ body {
   display: block;
 }
 
+/* ---------- shared visual language ---------- */
+
+/* primary / secondary calls to action — restrained, academic */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgb(var(--c-accent));
+  color: rgb(var(--c-paper));
+  padding: 0.7rem 1.25rem;
+  font-size: 0.95rem;
+  border: 1px solid rgb(var(--c-accent));
+  border-radius: 2px;
+  min-height: 44px;
+}
+.btn-primary:hover {
+  filter: brightness(1.12);
+}
+.btn-primary:active {
+  filter: brightness(0.94);
+}
+.dark .btn-primary {
+  color: rgb(24 23 22);
+}
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgb(var(--c-accent));
+  border: 1px solid rgb(var(--c-accent) / 0.65);
+  padding: 0.7rem 1.25rem;
+  font-size: 0.95rem;
+  border-radius: 2px;
+  min-height: 44px;
+}
+.btn-secondary:hover {
+  border-color: rgb(var(--c-accent));
+  background: rgb(var(--c-accent) / 0.06);
+}
+
+/* core claim — pull-quote, not a card */
+.claim {
+  border-left: 3px solid rgb(var(--c-accent));
+  padding-left: 1.25rem;
+}
+
+/* hero concept diagram strokes */
+.hcd-line {
+  stroke: rgb(var(--c-ink) / 0.75);
+  color: rgb(var(--c-ink) / 0.75);
+}
+.hcd-accent {
+  stroke: rgb(var(--c-accent));
+  color: rgb(var(--c-accent));
+}
+.hcd-accent-t {
+  fill: rgb(var(--c-accent));
+}
+.hcd-muted {
+  fill: rgb(var(--c-muted));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
 /* ---------- interactive loop diagram ---------- */
 
 .diag {

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import {
+  authorEmail,
   languageAlternates,
   paperTitle,
   authorName,
@@ -7,6 +8,7 @@ import {
   orcid,
   siteUrl,
   type Locale,
+  ogImage,
 } from "@/lib/i18n";
 
 const copy = {
@@ -67,6 +69,7 @@ export async function generateMetadata({
       ...languageAlternates("/about"),
     },
     openGraph: {
+      images: ogImage,
       title: c.title,
       description: c.description,
       url: `${siteUrl}/${locale}/about/`,
@@ -147,10 +150,10 @@ export default async function AboutPage({
             </dt>
             <dd className="mt-1">
               <a
-                href="mailto:alison.lai19830210@gmail.com"
+                href={`mailto:${authorEmail}`}
                 className="text-accent underline underline-offset-4 hover:no-underline"
               >
-                alison.lai19830210@gmail.com
+                {authorEmail}
               </a>
             </dd>
           </div>
@@ -158,12 +161,13 @@ export default async function AboutPage({
             <dt className="text-sm font-medium text-muted uppercase tracking-wider">
               {c.interestsLabel}
             </dt>
-            <dd className="mt-1">
-              <ul className="list-disc pl-5 space-y-1">
-                {c.interests.map((t) => (
-                  <li key={t}>{t}</li>
-                ))}
-              </ul>
+            <dd className="mt-1 max-w-prose leading-relaxed">
+              {c.interests.map((t, i) => (
+                <span key={t}>
+                  {i > 0 && <span className="mx-2 text-muted" aria-hidden="true">·</span>}
+                  {t}
+                </span>
+              ))}
             </dd>
           </div>
           <div>

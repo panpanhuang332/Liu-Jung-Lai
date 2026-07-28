@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { languageAlternates, paperTitle, siteUrl, type Locale } from "@/lib/i18n";
+import { languageAlternates, paperTitle, siteUrl, type Locale,
+  ogImage,
+} from "@/lib/i18n";
 import { oneMinute, tenMinute, fullGuide } from "@/lib/content/guide";
 
 const copy = {
@@ -49,6 +51,7 @@ export async function generateMetadata({
       ...languageAlternates("/guide"),
     },
     openGraph: {
+      images: ogImage,
       title: `${c.title}｜${paperTitle.en}`,
       description: c.description,
       url: `${siteUrl}/${locale}/guide/`,
