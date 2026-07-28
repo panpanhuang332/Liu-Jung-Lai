@@ -22,7 +22,7 @@ export const authorName = {
 
 export const affiliation = {
   en: "Department of Business Management, Chienkuo Technology University",
-  zh: "建國科技大學企業管理系",
+  zh: "建國科技大學經營管理系",
 } as const;
 
 export const orcid = "0009-0002-5441-3313";

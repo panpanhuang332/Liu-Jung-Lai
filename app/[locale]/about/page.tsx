@@ -13,7 +13,7 @@ const copy = {
   zh: {
     title: "關於作者",
     description:
-      "Liu-Jung Lai：建國科技大學企業管理系。研究關注生成式 AI 導入、組織意義建構與科技採用。",
+      "Liu-Jung Lai：建國科技大學經營管理系。研究關注生成式 AI 導入、組織意義建構與科技採用。",
     nameLabel: "姓名",
     affiliationLabel: "單位",
     orcidLabel: "ORCID",

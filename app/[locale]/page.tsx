@@ -17,7 +17,7 @@ const copy = {
     title: "Liu-Jung Lai｜學術作者網站",
     description:
       "Liu-Jung Lai 的學術網站：概念性論文《When Enablement Narratives Backfire》全文、導讀、命題總表與術語辭典，中英雙語。",
-    roleLine: "建國科技大學企業管理系",
+    roleLine: "建國科技大學經營管理系",
     intro:
       "本網站為一篇投稿中概念性論文的作者網站。論文探討組織導入生成式 AI 時，管理端善意的「賦能敘事」為何可能被員工解讀為取代訊號，以及員工如何透過與 AI 系統的直接互動，遞迴地更新對自身角色的意義建構，進而形成四種不同「種類」的採用回應。",
     interestsLabel: "研究關注",
