@@ -104,7 +104,7 @@ export const modesTeaser: {
 export const readingDepth: {
   heading: L;
   sub: L;
-  items: { n: string; time: L; what: L; href: string; hash?: string }[];
+  items: { n: L; time: L; what: L; href: string; hash?: string }[];
 } = {
   heading: { zh: "選擇你的閱讀深度", en: "Choose your reading depth" },
   sub: {
@@ -113,21 +113,21 @@ export const readingDepth: {
   },
   items: [
     {
-      n: "1",
+      n: { zh: "1", en: "1" },
       time: { zh: "1 分鐘", en: "1 minute" },
       what: { zh: "理解研究主張", en: "Understand the central claim" },
       href: "guide",
       hash: "#one-minute",
     },
     {
-      n: "10",
+      n: { zh: "10", en: "10" },
       time: { zh: "10 分鐘", en: "10 minutes" },
       what: { zh: "理解理論機制與主要命題", en: "Understand the mechanisms and propositions" },
       href: "guide",
       hash: "#ten-minutes",
     },
     {
-      n: "60",
+      n: { zh: "全", en: "Full" },
       time: { zh: "完整閱讀", en: "Full paper" },
       what: { zh: "閱讀論文全文、圖表與參考文獻", en: "Read the complete manuscript, figures, and references" },
       href: "paper",

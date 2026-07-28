@@ -11,7 +11,7 @@ export default function ReadingDepth({ locale }: { locale: Locale }) {
       <p className="mt-2 text-sm text-muted">{readingDepth.sub[locale]}</p>
       <ul className="mt-6 divide-y divide-line border-t border-b border-line">
         {readingDepth.items.map((item) => (
-          <li key={item.n}>
+          <li key={item.href + (item.hash ?? "")}>
             <Link
               href={`/${locale}/${item.href}/${item.hash ?? ""}`}
               className="group flex items-baseline gap-6 py-5 hover:bg-surface/60 px-2 -mx-2"
@@ -20,7 +20,7 @@ export default function ReadingDepth({ locale }: { locale: Locale }) {
                 className="w-16 shrink-0 text-right font-serif text-3xl text-accent tabular-nums"
                 aria-hidden="true"
               >
-                {item.n}
+                {item.n[locale]}
               </span>
               <span className="flex-1">
                 <span className="block font-medium text-ink">{item.time[locale]}</span>
