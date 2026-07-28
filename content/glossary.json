@@ -1,0 +1,842 @@
+[
+ {
+  "en": "enablement narrative",
+  "zh": "賦能敘事",
+  "section": "Title",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "enablement narrative backfire",
+  "zh": "賦能敘事反噬",
+  "section": "Abstract",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "AI-as-substitute frame",
+  "zh": "「AI 即替代」框架",
+  "section": "§1.2",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "AI-interactive role sensemaking loop",
+  "zh": "AI 互動式角色意義建構迴圈",
+  "section": "Abstract",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "sensemaking",
+  "zh": "意義建構",
+  "section": "Title",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "sensegiving",
+  "zh": "意義賦予",
+  "section": "§1.3",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "technological frames",
+  "zh": "科技框架",
+  "section": "§1.3",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "frame incongruence",
+  "zh": "框架不一致",
+  "section": "§1.3",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "role threat appraisal",
+  "zh": "角色威脅評估",
+  "section": "Abstract",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "role opportunity appraisal",
+  "zh": "角色機會評估",
+  "section": "Abstract",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "modes of adoption response",
+  "zh": "採用回應模式",
+  "section": "Title",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "avoidance",
+  "zh": "迴避",
+  "section": "Abstract",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "compliance-only use",
+  "zh": "純遵從性使用",
+  "section": "Abstract",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "defensive adoption",
+  "zh": "防衛性採用",
+  "section": "Abstract",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "genuine integration",
+  "zh": "真正整合",
+  "section": "Abstract",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "cognitive appraisal theory",
+  "zh": "認知評估理論",
+  "section": "§1.2",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "primary appraisal / secondary appraisal",
+  "zh": "初級評估／次級評估",
+  "section": "§1.2",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "challenge appraisal",
+  "zh": "挑戰性評估",
+  "section": "§2.4.1",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "coping resources",
+  "zh": "因應資源",
+  "section": "§1.2",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "protection motivation theory",
+  "zh": "保護動機理論",
+  "section": "§2",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "response efficacy / self-efficacy",
+  "zh": "反應效能／自我效能",
+  "section": "§2.4.1",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "implicature",
+  "zh": "語用蘊含",
+  "section": "§2",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "Gricean pragmatics",
+  "zh": "葛萊斯語用學",
+  "section": "§2",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "innuendo effect",
+  "zh": "暗示效應",
+  "section": "§2.3.1",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "strategic ambiguity",
+  "zh": "策略性模糊",
+  "section": "Abstract",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "euphemistic substitution",
+  "zh": "委婉替換",
+  "section": "§2.3.3",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "efficiency vocabulary / discourse",
+  "zh": "效率語彙／效率論述",
+  "section": "Abstract",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "word–deed inconsistency",
+  "zh": "言行不一致",
+  "section": "§1.2",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "behavioral integrity",
+  "zh": "行為誠信",
+  "section": "§2",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "psychological contract",
+  "zh": "心理契約",
+  "section": "§2",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "change cynicism",
+  "zh": "變革犬儒主義",
+  "section": "§2.3.3",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "job insecurity",
+  "zh": "工作不安全感",
+  "section": "§1.3",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "STARA awareness",
+  "zh": "STARA 覺察",
+  "section": "§1.3",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "AI identity threat",
+  "zh": "AI 身分威脅",
+  "section": "§1.3",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "employment security",
+  "zh": "僱用安全",
+  "section": "§1.2",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "market value of expertise",
+  "zh": "專業能力的市場價值",
+  "section": "§1.2",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "role autonomy",
+  "zh": "角色自主性",
+  "section": "§1.2",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "occupational identity and status",
+  "zh": "職業身分與地位",
+  "section": "§1.1",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "role augmentation / elevation / reinvention",
+  "zh": "角色增益／角色提升／角色再造",
+  "section": "§1.2",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "cue",
+  "zh": "線索",
+  "section": "Abstract",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "self-referential cues",
+  "zh": "自指涉線索",
+  "section": "§1.2",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "demonstrative cues",
+  "zh": "展示性線索",
+  "section": "§2.5.4",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "socially transmitted cues",
+  "zh": "社會傳遞線索",
+  "section": "§2.5.6",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "cue-generating artifact",
+  "zh": "線索生成物",
+  "section": "§2.5",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "enacted sensemaking",
+  "zh": "實作式意義建構",
+  "section": "§2.5.1",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "task-role overlap",
+  "zh": "任務—角色重疊度",
+  "section": "Abstract",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "cue credibility",
+  "zh": "線索可信度",
+  "section": "§1.4",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "machine heuristic",
+  "zh": "機器捷思",
+  "section": "§2",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "MAIN model",
+  "zh": "MAIN 模型",
+  "section": "§2.5.4",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "computers-are-social-actors (CASA)",
+  "zh": "電腦即社會行動者",
+  "section": "§2",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "automation–augmentation paradox",
+  "zh": "自動化—增益弔詭",
+  "section": "§2",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "job crafting",
+  "zh": "工作形塑",
+  "section": "§2",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "participatory implementation",
+  "zh": "參與式導入",
+  "section": "§2.4.2",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "credible role-redesign commitment",
+  "zh": "可信的角色再設計承諾",
+  "section": "§2.4.2",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "augmentation-configured demonstration",
+  "zh": "增益導向的示範配置",
+  "section": "§2.4.2",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "entrenchment / oscillation / reversal",
+  "zh": "固化／擺盪／逆轉",
+  "section": "Abstract",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "reappraisal",
+  "zh": "再評估",
+  "section": "§1.2",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "mechanism / construct / proposition",
+  "zh": "機制／構念／命題",
+  "section": "Abstract",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "contextual antecedent",
+  "zh": "脈絡前因",
+  "section": "§1.5",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "boundary condition",
+  "zh": "邊界條件",
+  "section": "§1.5",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "discriminant validity",
+  "zh": "區辨效度",
+  "section": "§5.3",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "latent transition analysis",
+  "zh": "潛在轉移分析",
+  "section": "§5.3",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "experience sampling",
+  "zh": "經驗取樣",
+  "section": "§5.3",
+  "note": "種子術語（已核定）"
+ },
+ {
+  "en": "generative AI implementation",
+  "zh": "生成式 AI 導入",
+  "section": "Title",
+  "note": "已核定"
+ },
+ {
+  "en": "technology acceptance model (TAM)",
+  "zh": "科技接受模式",
+  "section": "§2.1",
+  "note": "已核定"
+ },
+ {
+  "en": "unified theory of acceptance and use of technology (UTAUT)",
+  "zh": "整合性科技接受與使用理論",
+  "section": "§2.1",
+  "note": "已核定"
+ },
+ {
+  "en": "perceived usefulness",
+  "zh": "知覺有用性",
+  "section": "§1.3",
+  "note": "已核定"
+ },
+ {
+  "en": "perceived ease of use",
+  "zh": "知覺易用性",
+  "section": "§1.3",
+  "note": "已核定"
+ },
+ {
+  "en": "performance expectancy / effort expectancy / social influence / facilitating conditions",
+  "zh": "績效期望／努力期望／社會影響／促成條件",
+  "section": "§2.1",
+  "note": "已核定；UTAUT 四構面"
+ },
+ {
+  "en": "adoption intention",
+  "zh": "採用意圖",
+  "section": "Abstract",
+  "note": "已核定"
+ },
+ {
+  "en": "marked reassurance / pragmatically marked",
+  "zh": "標記化的再保證／語用標記",
+  "section": "§1.2",
+  "note": "已核定"
+ },
+ {
+  "en": "cooperative principle; maxims of relation and quantity",
+  "zh": "合作原則；關聯準則與量的準則",
+  "section": "§2.3.1",
+  "note": "已核定；Grice"
+ },
+ {
+  "en": "interpretive gap",
+  "zh": "詮釋落差",
+  "section": "§1.1",
+  "note": "已核定"
+ },
+ {
+  "en": "interpretive burden",
+  "zh": "詮釋負擔",
+  "section": "§2.3.2",
+  "note": "已核定"
+ },
+ {
+  "en": "interpretive prior(s)",
+  "zh": "詮釋先驗",
+  "section": "§2.3.4",
+  "note": "已核定"
+ },
+ {
+  "en": "substitution-oriented frame / prior",
+  "zh": "替代導向框架／替代性先驗",
+  "section": "§1.1",
+  "note": "已核定；網站規格用「替代性先驗」"
+ },
+ {
+  "en": "substitution signal",
+  "zh": "替代訊號",
+  "section": "§1.4",
+  "note": "已核定"
+ },
+ {
+  "en": "role substitution",
+  "zh": "角色替代",
+  "section": "Abstract",
+  "note": "已核定"
+ },
+ {
+  "en": "professional devaluation",
+  "zh": "專業貶值",
+  "section": "§1.2",
+  "note": "已核定"
+ },
+ {
+  "en": "displacement",
+  "zh": "取代（displacement）",
+  "section": "§1.2",
+  "note": "已核定；與 substitution（替代）區分"
+ },
+ {
+  "en": "organizational trust",
+  "zh": "組織信任",
+  "section": "§1.4",
+  "note": "已核定"
+ },
+ {
+  "en": "ability / benevolence / integrity",
+  "zh": "能力／善意／正直",
+  "section": "§2.3.4",
+  "note": "已核定；Mayer et al. 信任三構面"
+ },
+ {
+  "en": "perceived role vulnerability",
+  "zh": "知覺角色脆弱性",
+  "section": "§3.2",
+  "note": "已核定"
+ },
+ {
+  "en": "secondary appraisal resources",
+  "zh": "次級評估資源",
+  "section": "§1.4",
+  "note": "已核定"
+ },
+ {
+  "en": "AI-generated cue credibility",
+  "zh": "AI 生成線索可信度",
+  "section": "§2.5.4",
+  "note": "已核定"
+ },
+ {
+  "en": "automation anxiety",
+  "zh": "自動化焦慮",
+  "section": "§2",
+  "note": "已核定"
+ },
+ {
+  "en": "algorithmic management",
+  "zh": "演算法管理",
+  "section": "§1.3",
+  "note": "已核定"
+ },
+ {
+  "en": "innovation resistance",
+  "zh": "創新抗拒",
+  "section": "§1.3",
+  "note": "已核定"
+ },
+ {
+  "en": "knowledge work",
+  "zh": "知識工作",
+  "section": "§1.1",
+  "note": "已核定"
+ },
+ {
+  "en": "role meaning formation",
+  "zh": "角色意義形成",
+  "section": "Abstract",
+  "note": "已核定"
+ },
+ {
+  "en": "meaning management",
+  "zh": "意義管理",
+  "section": "§1.4",
+  "note": "已核定"
+ },
+ {
+  "en": "narrative reversal",
+  "zh": "敘事逆轉",
+  "section": "Abstract",
+  "note": "已核定"
+ },
+ {
+  "en": "recursive cue production",
+  "zh": "遞迴線索生產",
+  "section": "Abstract",
+  "note": "已核定"
+ },
+ {
+  "en": "cue extraction",
+  "zh": "線索擷取",
+  "section": "§1.2",
+  "note": "已核定"
+ },
+ {
+  "en": "information foraging",
+  "zh": "資訊覓食",
+  "section": "§2.5.2",
+  "note": "已核定；Pirolli & Card"
+ },
+ {
+  "en": "equivocality / equivocal",
+  "zh": "模糊多義性",
+  "section": "§2.2",
+  "note": "已核定；Weick 用語"
+ },
+ {
+  "en": "plausibility / plausible account",
+  "zh": "合理可信性／合理可信的敘說",
+  "section": "§1.3",
+  "note": "已核定；Weick 用語"
+ },
+ {
+  "en": "bracketing (cues)",
+  "zh": "框選（線索）",
+  "section": "§2.2",
+  "note": "已核定；Weick 用語"
+ },
+ {
+  "en": "retrospective",
+  "zh": "回溯性",
+  "section": "§2.2",
+  "note": "已核定"
+ },
+ {
+  "en": "enactment",
+  "zh": "實作（enactment）",
+  "section": "§1.5",
+  "note": "已核定；與 enacted sensemaking 一致"
+ },
+ {
+  "en": "probe / probing",
+  "zh": "探測",
+  "section": "§1.2",
+  "note": "已核定"
+ },
+ {
+  "en": "hallucination (hallucinate)",
+  "zh": "幻覺",
+  "section": "§2.5.4",
+  "note": "已核定"
+ },
+ {
+  "en": "vicarious demonstrative cues",
+  "zh": "間接展示線索",
+  "section": "§2.5.6",
+  "note": "已核定；避免與「替代」(substitution) 混淆，故不譯「替代性」"
+ },
+ {
+  "en": "source credibility",
+  "zh": "來源可信度",
+  "section": "§4.3",
+  "note": "已核定"
+ },
+ {
+  "en": "covert use",
+  "zh": "隱蔽使用",
+  "section": "§1.2",
+  "note": "已核定"
+ },
+ {
+  "en": "external mandate",
+  "zh": "外部強制要求",
+  "section": "§3.1",
+  "note": "已核定"
+ },
+ {
+  "en": "discretion",
+  "zh": "裁量權",
+  "section": "§1.2",
+  "note": "已核定；網站規格用「裁量權」"
+ },
+ {
+  "en": "behavioral depth",
+  "zh": "行為深度",
+  "section": "§1.2",
+  "note": "已核定"
+ },
+ {
+  "en": "use trajectory",
+  "zh": "使用軌跡",
+  "section": "§3.4",
+  "note": "已核定"
+ },
+ {
+  "en": "protective motive",
+  "zh": "自我保護動機",
+  "section": "§3.4",
+  "note": "已核定；避免與 protection motivation theory 譯名重疊"
+ },
+ {
+  "en": "dual pathway",
+  "zh": "雙路徑",
+  "section": "§1.2",
+  "note": "已核定"
+ },
+ {
+  "en": "hindrance appraisal",
+  "zh": "阻礙性評估",
+  "section": "§2.4.1",
+  "note": "已核定；Ding (2021) challenge–hindrance"
+ },
+ {
+  "en": "transactional (reading of appraisal)",
+  "zh": "交互作用取向（的評估觀）",
+  "section": "§4.2",
+  "note": "已核定；Lazarus & Folkman"
+ },
+ {
+  "en": "coping appraisal",
+  "zh": "因應評估",
+  "section": "§2.4.1",
+  "note": "已核定"
+ },
+ {
+  "en": "terminal outcome",
+  "zh": "終端結果",
+  "section": "§3",
+  "note": "已核定"
+ },
+ {
+  "en": "tier",
+  "zh": "層級（tier）",
+  "section": "§2.6",
+  "note": "已核定"
+ },
+ {
+  "en": "componential / component",
+  "zh": "成分式／組成成分",
+  "section": "§1.2",
+  "note": "已核定"
+ },
+ {
+  "en": "employability",
+  "zh": "就業能力",
+  "section": "§3.3",
+  "note": "已核定"
+ },
+ {
+  "en": "employment protection legislation / collective representation / occupational licensure / at-will employment",
+  "zh": "就業保護立法／集體代表制／職業證照制度／隨意僱用制",
+  "section": "§5.2",
+  "note": "已核定；§5.2 制度脈絡"
+ },
+ {
+  "en": "confirmatory factor analysis",
+  "zh": "驗證性因素分析",
+  "section": "§5.3",
+  "note": "已核定"
+ },
+ {
+  "en": "longitudinal structural equation modeling",
+  "zh": "縱貫性結構方程模型",
+  "section": "§5.3",
+  "note": "已核定"
+ },
+ {
+  "en": "diary study",
+  "zh": "日誌研究法",
+  "section": "§5.3",
+  "note": "已核定"
+ },
+ {
+  "en": "process tracing",
+  "zh": "歷程追蹤",
+  "section": "§5.3",
+  "note": "已核定"
+ },
+ {
+  "en": "scope condition",
+  "zh": "適用範圍條件",
+  "section": "§2.1",
+  "note": "已核定"
+ },
+ {
+  "en": "modality / agency / interactivity / navigability",
+  "zh": "形式／代理／互動性／導覽性",
+  "section": "§2.5.4",
+  "note": "已核定；MAIN 四類介面線索"
+ },
+ {
+  "en": "realistic merger preview",
+  "zh": "務實併購預告",
+  "section": "§2.3.2",
+  "note": "已核定；Schweiger & DeNisi (1991)"
+ },
+ {
+  "en": "downsizing / restructuring",
+  "zh": "裁員縮編／組織重組",
+  "section": "§2.3.3",
+  "note": "已核定"
+ },
+ {
+  "en": "machine-sourced information",
+  "zh": "機器來源資訊",
+  "section": "§2.5.4",
+  "note": "已核定"
+ },
+ {
+  "en": "empowerment",
+  "zh": "賦權",
+  "section": "§1.1",
+  "note": "譯程新增；與 enablement（賦能）刻意區分"
+ },
+ {
+  "en": "threat-consistent completion",
+  "zh": "與威脅一致的補全",
+  "section": "§2.3.2",
+  "note": "譯程新增；全文統一"
+ },
+ {
+  "en": "artifact-generated cues",
+  "zh": "人造物生成線索",
+  "section": "§2.5.6",
+  "note": "譯程新增；與「線索生成物」（cue-generating artifact）並用"
+ },
+ {
+  "en": "artifact (standalone)",
+  "zh": "人造物",
+  "section": "§2.5",
+  "note": "譯程新增"
+ },
+ {
+  "en": "appraisal bridge",
+  "zh": "評估橋樑",
+  "section": "§2.6",
+  "note": "譯程新增；bridge 全文統一譯「橋樑」"
+ },
+ {
+  "en": "enabling components",
+  "zh": "賦能的成分",
+  "section": "§3.3",
+  "note": "譯程新增（表 2 分組標題）"
+ },
+ {
+  "en": "endangered components",
+  "zh": "受危害的成分",
+  "section": "§3.3",
+  "note": "譯程新增（表 2 分組標題）"
+ },
+ {
+  "en": "algorithmic awareness",
+  "zh": "演算法覺察",
+  "section": "§1.4",
+  "note": "譯程新增"
+ },
+ {
+  "en": "euphemistic discourse",
+  "zh": "委婉論述",
+  "section": "§2",
+  "note": "譯程新增"
+ },
+ {
+  "en": "engagement",
+  "zh": "投入",
+  "section": "§2.4.1",
+  "note": "譯程新增；minimal engagement 譯「最低限度的投入」"
+ },
+ {
+  "en": "attributed usage metrics",
+  "zh": "可歸屬的使用指標",
+  "section": "§5.1",
+  "note": "譯程新增"
+ },
+ {
+  "en": "meaning-making",
+  "zh": "意義建構",
+  "section": "§2.5.6",
+  "note": "譯程新增；與 sensemaking 同詞族，統一譯法"
+ }
+]

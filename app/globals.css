@@ -52,3 +52,79 @@ body {
 ::selection {
   background: rgb(var(--c-accent) / 0.18);
 }
+
+/* ---------- paper page ---------- */
+
+.paper-prose {
+  max-width: 68ch;
+  line-height: 1.75;
+}
+
+[id] {
+  scroll-margin-top: 5.5rem;
+}
+
+/* bilingual pairing: secondary language hidden unless the mode is on */
+.pair .alt {
+  display: none;
+}
+.pair.always-both .alt {
+  display: block;
+}
+[data-bilingual="on"].paper-prose {
+  max-width: none;
+}
+[data-bilingual="on"] .pair-para {
+  display: grid;
+  grid-template-columns: 1fr;
+  column-gap: 2.5rem;
+  row-gap: 0.4rem;
+}
+@media (min-width: 768px) {
+  [data-bilingual="on"] .pair-para {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+[data-bilingual="on"] .pair .alt {
+  display: block;
+}
+
+/* citation tooltips */
+.cite {
+  position: relative;
+  color: rgb(var(--c-accent));
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 3px;
+}
+.cite-tip {
+  display: none;
+  position: absolute;
+  bottom: calc(100% + 0.45rem);
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(26rem, 82vw);
+  background: rgb(var(--c-surface));
+  color: rgb(var(--c-ink));
+  border: 1px solid rgb(var(--c-line));
+  padding: 0.6rem 0.75rem;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  font-family: system-ui, sans-serif;
+  z-index: 30;
+  text-align: left;
+}
+.cite:hover .cite-tip,
+.cite:focus-visible .cite-tip {
+  display: block;
+}
+
+/* reference list: hanging indent + jump-target highlight */
+.ref-entry {
+  padding-left: 2ch;
+  text-indent: -2ch;
+}
+:target {
+  background: rgb(var(--c-accent) / 0.08);
+  transition: background 0.6s ease;
+}
