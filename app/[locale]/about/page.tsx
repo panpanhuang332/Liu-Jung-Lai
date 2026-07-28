@@ -29,7 +29,6 @@ const copy = {
     currentWorkLabel: "目前研究",
     currentWork:
       "目前投稿中的概念性論文探討生成式 AI 導入中的賦能敘事反噬與 AI 互動式角色意義建構迴圈，並提出四種採用回應模式。",
-    pendingNote: "（待作者確認後補上）",
   },
   en: {
     title: "About the Author",
@@ -50,7 +49,6 @@ const copy = {
     currentWorkLabel: "Current work",
     currentWork:
       "A conceptual paper currently under review examines enablement narrative backfire and the AI-interactive role sensemaking loop in generative AI implementation, proposing four modes of adoption response.",
-    pendingNote: "(to be confirmed by the author)",
   },
 } as const;
 
@@ -147,7 +145,14 @@ export default async function AboutPage({
             <dt className="text-sm font-medium text-muted uppercase tracking-wider">
               {c.emailLabel}
             </dt>
-            <dd className="mt-1 text-muted">{c.pendingNote}</dd>
+            <dd className="mt-1">
+              <a
+                href="mailto:alison.lai19830210@gmail.com"
+                className="text-accent underline underline-offset-4 hover:no-underline"
+              >
+                alison.lai19830210@gmail.com
+              </a>
+            </dd>
           </div>
           <div>
             <dt className="text-sm font-medium text-muted uppercase tracking-wider">
