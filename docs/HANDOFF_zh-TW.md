@@ -13,8 +13,7 @@
   - `/zh/papers/`：學術作品列表（兩篇論文平行並列）
   - `/zh/papers/enablement-narrative-backfire/`：Paper A 論文頁（當賦能敘事反噬）
   - `/zh/paper/`、`/zh/guide/`、`/zh/mechanisms/`、`/zh/propositions/`、`/zh/modes/`、`/zh/glossary/`、`/zh/cite/`：Paper A 的全文與各種導讀頁（**舊網址全部保留**）
-  - `/zh/papers/integration-replaceability-paradox/`：Paper B 論文頁（整合—可替代性弔詭）
-  - `/zh/papers/integration-replaceability-paradox/full-text/`：Paper B 全文（中英對照）
+  - `/zh/papers/integration-replaceability-paradox/`：Paper B 論文頁（整合—可替代性弔詭）。**注意**：Paper B 目前在資料蒐集完成前只公開節錄（詳見 `docs/PUBLICATION_BOUNDARY.md`），全文頁與研究模型圖已 embargo，資料蒐集完成後才可恢復
   - `/zh/questions/`：讀者提問（Google 表單入口）
   - `/zh/qa/`：公開學術問答
   - `/zh/about/`：關於作者
@@ -26,10 +25,9 @@
 | 論文清單與狀態（卡片文字、標籤、章節清單） | `content/papers/index.ts` |
 | Paper A 英文全文 | `content/en/paper.mdx` |
 | Paper A 中文全文 | `content/zh/paper.mdx` |
-| Paper B 英文全文 | `content/en/integration-replaceability-paradox.mdx` |
-| Paper B 中文全文（工作譯本） | `content/zh/integration-replaceability-paradox.mdx` |
-| Paper B 翻譯工作檔（基準稿、術語表、QA 報告） | `translation/paper-b/` |
-| 圖檔 | `public/figures/`（Paper B 圖 1：`paper-b-figure1.png`、中文版 `paper-b-figure1-zh.svg`） |
+| Paper B 公開節錄（英文基準稿、中文工作譯本、術語表、QA 節錄） | `translation/paper-b/` |
+| Paper B 完整稿與圖檔（embargo，**不在公開 repo**） | 作者私人保存（建議另建 private repository；見 `docs/PUBLICATION_BOUNDARY.md`） |
+| 圖檔（Paper A） | `public/figures/` |
 
 注意：中英全文檔是「逐段平行」的——中文檔第 N 段對應英文檔第 N 段。若增刪段落，兩個檔案必須同步增刪，否則網站建置會報「block mismatch」錯誤。
 

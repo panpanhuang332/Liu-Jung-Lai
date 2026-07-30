@@ -65,25 +65,31 @@ export default function PaperCard({ locale, paper }: { locale: Locale; paper: Pa
       </div>
 
       <div className="mt-6 flex flex-wrap items-center gap-3 border-t border-line pt-4 text-sm">
-        {paper.routes.fullText && (
-          <Link href={`/${locale}${paper.routes.fullText}/`} className="btn-primary">
-            {t.readFullText}
+        {paper.routes.fullText ? (
+          <>
+            <Link href={`/${locale}${paper.routes.fullText}/`} className="btn-primary">
+              {t.readFullText}
+            </Link>
+            <Link
+              href={`/zh${paper.routes.fullText}/`}
+              className="underline underline-offset-4 hover:text-accent"
+            >
+              {t.zhTranslation}
+            </Link>
+          </>
+        ) : (
+          <Link href={`/${locale}${paper.routes.overview}/`} className="btn-primary">
+            {t.overview}
           </Link>
         )}
-        {paper.routes.fullText && (
+        {paper.routes.guide && (
           <Link
-            href={`/zh${paper.routes.fullText}/`}
+            href={`/${locale}${paper.routes.guide}/`}
             className="underline underline-offset-4 hover:text-accent"
           >
-            {t.zhTranslation}
+            {t.guide}
           </Link>
         )}
-        <Link
-          href={`/${locale}${paper.routes.guide ?? paper.routes.overview}/`}
-          className="underline underline-offset-4 hover:text-accent"
-        >
-          {paper.routes.guide ? t.guide : t.overview}
-        </Link>
       </div>
       <p className="mt-3 text-xs text-muted">{paper.translationStatus.label[locale]}</p>
     </article>

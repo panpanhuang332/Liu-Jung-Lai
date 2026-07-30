@@ -6,6 +6,10 @@ export type PaperEntry = {
   slug: string;
   /** content/{en,zh}/<contentId>.mdx；null 表示無雙語全文檔 */
   contentId: string | null;
+  /** 作者署名是否已由作者正式確認 */
+  authorshipConfirmed: boolean;
+  /** 資料蒐集完成前之公開限制說明；null 表示無 embargo */
+  embargo: { note: L; until: L } | null;
   title: L;
   titleMain: L;
   titleSub: L;
@@ -49,6 +53,8 @@ export const papers: PaperEntry[] = [
   {
     slug: "enablement-narrative-backfire",
     contentId: "paper",
+    authorshipConfirmed: true,
+    embargo: null,
     title: {
       en: "When Enablement Narratives Backfire: Recursive Sensemaking and Modes of Adoption Response in Generative AI Implementation",
       zh: "當賦能敘事反噬：生成式 AI 導入中的遞迴意義建構與採用回應模式",
@@ -130,7 +136,18 @@ export const papers: PaperEntry[] = [
   },
   {
     slug: "integration-replaceability-paradox",
-    contentId: "integration-replaceability-paradox",
+    contentId: null,
+    authorshipConfirmed: true,
+    embargo: {
+      note: {
+        zh: "為避免需求特徵、假設猜測與量測污染，實驗材料、量表題項、檢核題項、各組操弄內容、研究模型圖與 §3–§5 全文於資料蒐集完成前暫不公開。",
+        en: "To avoid demand characteristics, hypothesis guessing, and measurement contamination, the experimental materials, scale and check items, condition manipulations, research-model figure, and the full text of Sections 3–5 are withheld until data collection is complete.",
+      },
+      until: {
+        zh: "完整方法與研究工具將於資料蒐集完成或正式發表後公開。",
+        en: "The full method and research instruments will be made public after data collection is complete or upon formal publication.",
+      },
+    },
     title: {
       en: "The Integration–Replaceability Paradox: AI Workflow Integration, Perceived Role Replaceability, and Role Threat Appraisal",
       zh: "整合—可替代性弔詭：AI 工作流程整合、知覺角色可替代性與角色威脅評估",
@@ -143,10 +160,7 @@ export const papers: PaperEntry[] = [
     titleProvisional: true,
     authors: {
       display: { en: "Liu-Jung Lai", zh: "賴柳蓉（Liu-Jung Lai）" },
-      note: {
-        zh: "原稿署名 Eric Lai（獨立作者）；正式署名待作者確認。",
-        en: "Manuscript byline: Eric Lai (sole author); formal byline pending author confirmation.",
-      },
+      note: null,
     },
     year: "2026",
     type: { zh: "實驗研究（2 × 2 情境實驗設計）", en: "Empirical study (2 × 2 scenario experiment design)" },
@@ -179,44 +193,28 @@ export const papers: PaperEntry[] = [
       en: "How does deep AI workflow integration simultaneously generate perceptions of implementation success and role replaceability, and under what conditions does perceived replaceability translate into role threat?",
     },
     availableSections: [
-      { zh: "§1 緒論", en: "§1 Introduction" },
+      { zh: "題名頁與關鍵詞（暫定）", en: "Title page & provisional keywords" },
+      { zh: "§1 緒論（節錄；研究設計段落暫不公開）", en: "§1 Introduction (excerpt; design paragraphs withheld)" },
       { zh: "§2 理論背景", en: "§2 Theoretical Background" },
-      { zh: "§3 假設發展與研究模型（H1a–H5、圖 1）", en: "§3 Hypotheses & Research Model (H1a–H5, Figure 1)" },
-      { zh: "§4 研究方法", en: "§4 Method" },
-      { zh: "§5 預定分析架構（無資料之模板）", en: "§5 Preregistered analysis plan (template, no data)" },
       { zh: "參考文獻", en: "References" },
-      { zh: "附錄 A 實驗材料、附錄 B 題項池", en: "Appendix A materials & Appendix B item pools" },
     ],
     missingSections: [
       { zh: "摘要（資料蒐集後撰寫）", en: "Abstract (to be written after data collection)" },
-      { zh: "§6 討論（佔位符）", en: "§6 Discussion (placeholder)" },
-      { zh: "§7 結論（佔位符）", en: "§7 Conclusion (placeholder)" },
+      { zh: "§3–§5、研究模型圖、附錄 A–B（資料蒐集完成前暫不公開）", en: "§3–§5, research-model figure, Appendices A–B (embargoed until data collection is complete)" },
+      { zh: "§6 討論、§7 結論（佔位符）", en: "§6 Discussion & §7 Conclusion (placeholders)" },
       { zh: "實證結果（尚未蒐集資料）", en: "Empirical results (data not yet collected)" },
     ],
     routes: {
       overview: "/papers/integration-replaceability-paradox",
-      fullText: "/papers/integration-replaceability-paradox/full-text",
+      fullText: null,
       guide: null,
       extras: [],
     },
-    figures: [
-      {
-        src: "/figures/paper-b-figure1.png",
-        zhSrc: "/figures/paper-b-figure1-zh.svg",
-        caption: {
-          zh: "圖 1：整合—可替代性弔詭之研究模型",
-          en: "Figure 1: Research model of the integration–replaceability paradox",
-        },
-        alt: {
-          zh: "圖 1：研究模型圖。AI 工作流程整合深度（操弄）以實線箭頭 H1a 指向知覺組織導入成功、以 H1b 指向知覺角色可替代性；兩者由大括號標為整合—可替代性弔詭。知覺角色可替代性以實線箭頭 H2 指向角色威脅評估；角色再設計承諾之可驗證佐證（操弄）以虛線箭頭 H4 指向可替代性—威脅路徑。",
-          en: "Figure 1: research model. AI workflow integration depth (manipulated) points via solid arrows H1a to perceived organizational implementation success and H1b to perceived role replaceability; a bracket labels the two as the integration–replaceability paradox. Perceived role replaceability points via solid arrow H2 to role threat appraisal; role-redesign commitment substantiation (manipulated) moderates the replaceability-to-threat path via dashed arrow H4.",
-        },
-      },
-    ],
+    figures: [],
     supplements: [],
     citation: {
-      zh: "Lai (2026). The integration–replaceability paradox: AI workflow integration, perceived role replaceability, and role threat appraisal [Working manuscript, research in progress；暫定題名].",
-      en: "Lai (2026). The integration–replaceability paradox: AI workflow integration, perceived role replaceability, and role threat appraisal [Working manuscript, research in progress; working title].",
+      zh: "Lai, L.-J. (2026). The integration–replaceability paradox: AI workflow integration, perceived role replaceability, and role threat appraisal [Working manuscript, research in progress；暫定題名].",
+      en: "Lai, L.-J. (2026). The integration–replaceability paradox: AI workflow integration, perceived role replaceability, and role threat appraisal [Working manuscript, research in progress; working title].",
     },
     featured: true,
     order: 2,
