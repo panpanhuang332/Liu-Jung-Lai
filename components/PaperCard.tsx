@@ -91,6 +91,21 @@ export default function PaperCard({ locale, paper }: { locale: Locale; paper: Pa
           </Link>
         )}
       </div>
+      {paper.routes.extras.length > 0 && (
+        <p className="mt-3 text-xs text-muted">
+          {paper.routes.extras.map((e, i) => (
+            <span key={e.href}>
+              {i > 0 && <span className="mx-1.5" aria-hidden="true">·</span>}
+              <Link
+                href={`/${locale}${e.href}/`}
+                className="underline underline-offset-2 hover:text-accent"
+              >
+                {e.label[locale]}
+              </Link>
+            </span>
+          ))}
+        </p>
+      )}
       <p className="mt-3 text-xs text-muted">{paper.translationStatus.label[locale]}</p>
     </article>
   );
