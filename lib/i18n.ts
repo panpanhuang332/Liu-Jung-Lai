@@ -65,6 +65,7 @@ type Dict = {
   siteName: string;
   nav: {
     home: string;
+    papers: string;
     paper: string;
     guide: string;
     mechanisms: string;
@@ -72,6 +73,8 @@ type Dict = {
     modes: string;
     glossary: string;
     cite: string;
+    questions: string;
+    qa: string;
     about: string;
   };
   footer: {
@@ -90,6 +93,7 @@ export const dictionaries: Record<Locale, Dict> = {
     siteName: "Liu-Jung Lai｜學術網站",
     nav: {
       home: "首頁",
+      papers: "學術作品",
       paper: "論文全文",
       guide: "導讀",
       mechanisms: "機制拆解",
@@ -97,10 +101,13 @@ export const dictionaries: Record<Locale, Dict> = {
       modes: "採用模式",
       glossary: "術語辭典",
       cite: "引用本文",
+      questions: "讀者提問",
+      qa: "學術問答",
       about: "關於作者",
     },
     footer: {
-      statusNote: "本文目前為投稿中之手稿（manuscript under review），尚未正式發表。",
+      statusNote:
+        "本站各篇論文依其頁面標示之狀態呈現（投稿中手稿或研究進行中之工作論文），均尚未正式發表。",
       rights: "版權所有",
     },
     underConstruction: "此頁面建置中",
@@ -113,6 +120,7 @@ export const dictionaries: Record<Locale, Dict> = {
     siteName: "Liu-Jung Lai | Academic Site",
     nav: {
       home: "Home",
+      papers: "Papers",
       paper: "Full Paper",
       guide: "Reader's Guide",
       mechanisms: "Mechanisms",
@@ -120,10 +128,13 @@ export const dictionaries: Record<Locale, Dict> = {
       modes: "Adoption Modes",
       glossary: "Glossary",
       cite: "Cite",
+      questions: "Ask a Question",
+      qa: "Q&A",
       about: "About",
     },
     footer: {
-      statusNote: "This paper is currently a manuscript under review and has not been formally published.",
+      statusNote:
+        "Papers on this site carry the status shown on their pages (manuscript under review, or working manuscript with research in progress); none has been formally published.",
       rights: "All rights reserved",
     },
     underConstruction: "This page is under construction",

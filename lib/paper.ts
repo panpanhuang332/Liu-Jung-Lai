@@ -81,11 +81,16 @@ const SPECIAL_IDS: Array<[RegExp, string]> = [
   [/^Funding/i, "funding"],
   [/^Data Availability/i, "data-availability"],
   [/^References/i, "references"],
+  [/^Appendix A/i, "appendix-a"],
+  [/^Appendix B/i, "appendix-b"],
 ];
 
 function headingId(enText: string, index: number): string {
   const num = enText.match(/^(\d+(?:\.\d+)*)/);
   if (num) return "s-" + num[1].split(".").join("-");
+  // appendix subsections: "A.1 Study introduction" -> s-a-1
+  const app = enText.match(/^([A-D])\.(\d+)/);
+  if (app) return "s-" + app[1].toLowerCase() + "-" + app[2];
   for (const [re, id] of SPECIAL_IDS) if (re.test(enText)) return id;
   return index === 0 ? "top" : `h-${index}`;
 }
@@ -105,15 +110,25 @@ function refSlug(text: string, year: string, used: Set<string>): string {
   return id;
 }
 
-let cache: Paper | null = null;
+const cache = new Map<string, Paper>();
 
-export function getPaper(): Paper {
-  if (cache) return cache;
+/**
+ * Load a bilingual paper by content id.
+ * "paper"                              -> Paper A (existing files)
+ * "integration-replaceability-paradox" -> Paper B
+ */
+export function getPaper(contentId: string = "paper"): Paper {
+  const cached = cache.get(contentId);
+  if (cached) return cached;
   const root = process.cwd();
-  const en = parseBlocks(fs.readFileSync(path.join(root, "content/en/paper.mdx"), "utf8"));
-  const zh = parseBlocks(fs.readFileSync(path.join(root, "content/zh/paper.mdx"), "utf8"));
+  const en = parseBlocks(
+    fs.readFileSync(path.join(root, `content/en/${contentId}.mdx`), "utf8")
+  );
+  const zh = parseBlocks(
+    fs.readFileSync(path.join(root, `content/zh/${contentId}.mdx`), "utf8")
+  );
   if (en.length !== zh.length) {
-    throw new Error(`paper block mismatch: en=${en.length} zh=${zh.length}`);
+    throw new Error(`paper block mismatch (${contentId}): en=${en.length} zh=${zh.length}`);
   }
 
   const pairs: BlockPair[] = [];
@@ -135,8 +150,8 @@ export function getPaper(): Paper {
         toc.push({ id, level: e.level, label: { zh: z.text, en: e.text } });
       }
     } else if (e.type === "para") {
-      // proposition / research-question anchors
-      const pm = e.text.match(/^\*\*(P\d+a?|RQ\d)[.:]?\*\*/);
+      // proposition / research-question / hypothesis anchors
+      const pm = e.text.match(/^\*\*(P\d+a?|RQ\d|H\d+[ab]?)[.:]?\*\*/);
       if (pm) pair.id = "prop-" + pm[1].toLowerCase();
       if (inRefs) {
         pair.inRefs = true;
@@ -147,12 +162,13 @@ export function getPaper(): Paper {
         refs.push({ id, text: e.text, year, haystack: e.text.toLowerCase() });
       }
       // figure caption + note: always show both languages (spec: 圖說中英雙語)
-      if (/^(\*\*Figure \d|\*Note\.\*)/.test(e.text)) pair.alwaysBoth = true;
+      if (/^(\*\*Figure \d|\*\*圖 \d|\*Note\.\*|\*註\.\*)/.test(e.text)) pair.alwaysBoth = true;
     }
     pairs.push(pair);
   }
-  cache = { pairs, toc, refs };
-  return cache;
+  const paper = { pairs, toc, refs };
+  cache.set(contentId, paper);
+  return paper;
 }
 
 /** find the reference entry matching a cited surname list + year */

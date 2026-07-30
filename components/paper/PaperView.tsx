@@ -7,6 +7,7 @@ const { renderToStaticMarkup } = (eval("require") as NodeRequire)(
   "react-dom/server"
 ) as typeof import("react-dom/server");
 import { getPaper, type Block, type BlockPair } from "@/lib/paper";
+import { withBase } from "@/lib/assets";
 import type { Locale } from "@/lib/i18n";
 import { renderInline } from "./Inline";
 import PaperTable from "./PaperTable";
@@ -37,11 +38,25 @@ function headingTag(level: number, isTitle: boolean, seenH2: boolean) {
   return (["h2", "h3", "h4", "h5"] as const)[idx];
 }
 
-export default function PaperView({ locale }: { locale: Locale }) {
-  const { pairs, refs } = getPaper();
+export default function PaperView({
+  locale,
+  contentId = "paper",
+  figureAlt,
+  figureFullSrc,
+}: {
+  locale: Locale;
+  /** content/{en,zh}/<contentId>.mdx (default: Paper A) */
+  contentId?: string;
+  /** per-paper figure alt text override */
+  figureAlt?: { zh: string; en: string };
+  /** full-size image for the lightbox; defaults to the figure's own src */
+  figureFullSrc?: string;
+}) {
+  const { pairs, refs } = getPaper(contentId);
   const ctx = { refs, cite: true };
   const noCite = { refs, cite: false };
   const t = ui[locale];
+  const figAlt = figureAlt ? figureAlt[locale] : t.figureAlt;
   const otherLang = locale === "zh" ? "en" : "zh-Hant";
   const pick = (p: BlockPair): Block => (locale === "zh" ? p.zh : p.en);
   const alt = (p: BlockPair): Block => (locale === "zh" ? p.en : p.zh);
@@ -83,14 +98,17 @@ export default function PaperView({ locale }: { locale: Locale }) {
         <div key={key} className="mt-8">
           <button
             type="button"
-            data-lightbox="/figures/figure1-full.png"
+            data-lightbox={withBase(
+              figureFullSrc ??
+                (b.src === "/figures/figure1.png" ? "/figures/figure1-full.png" : b.src)
+            )}
             aria-label={t.figureOpen}
             className="block w-full cursor-zoom-in border border-line bg-white"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={b.src}
-              alt={t.figureAlt}
+              src={withBase(b.src)}
+              alt={figAlt}
               width={1600}
               height={898}
               loading="lazy"
@@ -169,7 +187,7 @@ export default function PaperView({ locale }: { locale: Locale }) {
         className="paper-prose font-serif text-ink"
         dangerouslySetInnerHTML={{ __html: html }}
       />
-      <LightboxController closeLabel={t.figureClose} alt={t.figureAlt} />
+      <LightboxController closeLabel={t.figureClose} alt={figAlt} />
       <AnchorFix />
     </>
   );

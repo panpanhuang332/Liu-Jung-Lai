@@ -1,29 +1,23 @@
 import Link from "next/link";
-import { getDict, authorName, paperTitleMain, type Locale } from "@/lib/i18n";
+import { getDict, authorName, type Locale } from "@/lib/i18n";
 import LanguageSwitcher from "./LanguageSwitcher";
 import ThemeToggle from "./ThemeToggle";
 import ActiveNavLink from "./nav/ActiveNavLink";
 import MobileNav, { type NavGroup } from "./nav/MobileNav";
 
-/** grouped navigation: paper | explore | about — shared by desktop and mobile */
+/** grouped navigation: works | reader interaction | author — shared by desktop and mobile */
 function navGroups(locale: Locale): NavGroup[] {
   const d = getDict(locale).nav;
   return [
-    { items: [{ href: `/${locale}/paper`, label: d.paper }] },
+    { items: [{ href: `/${locale}/papers`, label: d.papers }] },
     {
       items: [
-        { href: `/${locale}/guide`, label: d.guide },
-        { href: `/${locale}/mechanisms`, label: d.mechanisms },
-        { href: `/${locale}/propositions`, label: d.propositions },
-        { href: `/${locale}/modes`, label: d.modes },
-        { href: `/${locale}/glossary`, label: d.glossary },
+        { href: `/${locale}/questions`, label: d.questions },
+        { href: `/${locale}/qa`, label: d.qa },
       ],
     },
     {
-      items: [
-        { href: `/${locale}/cite`, label: d.cite },
-        { href: `/${locale}/about`, label: d.about },
-      ],
+      items: [{ href: `/${locale}/about`, label: d.about }],
     },
   ];
 }
@@ -42,8 +36,19 @@ export default function SiteHeader({ locale }: { locale: Locale }) {
             href={`/${locale}`}
             className="min-w-0 shrink font-serif text-[0.95rem] leading-tight text-ink hover:text-accent"
           >
-            <span lang="en" className="block truncate">{paperTitleMain.en}</span>
-            <span className="block text-xs text-muted font-sans">{authorName.en}</span>
+            <span className="block truncate">
+              {locale === "zh" ? (
+                <>
+                  {authorName.zh}
+                  <span lang="en" className="ml-1.5 text-muted">{authorName.en}</span>
+                </>
+              ) : (
+                <span lang="en">{authorName.en}</span>
+              )}
+            </span>
+            <span className="block text-xs text-muted font-sans">
+              {locale === "zh" ? "個人學術網站" : "Academic Site"}
+            </span>
           </Link>
           <div className="flex items-center gap-1 sm:gap-2">
             <LanguageSwitcher

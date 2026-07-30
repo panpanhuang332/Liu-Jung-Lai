@@ -1,6 +1,10 @@
+import fs from "node:fs";
 import { chromium } from "playwright-core";
 
-const outDir = process.env.SHOT_DIR;
+// Screenshots always go to an explicit, git-ignored directory; SHOT_DIR may
+// override but an unset env var must never produce an "undefined/" path.
+const outDir = process.env.SHOT_DIR || "test-results/shots";
+fs.mkdirSync(outDir, { recursive: true });
 const base = "http://localhost:4180";
 const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium" });
 
