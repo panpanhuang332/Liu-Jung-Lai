@@ -79,8 +79,21 @@ export default async function QuestionsPage({
   const ready = googleFormReady();
   const { publicUrl, embedUrl } = siteConfig.googleForm;
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: c.title,
+    description: c.description,
+    inLanguage: locale === "zh" ? "zh-Hant" : "en",
+    url: `${siteUrl}/${locale}/questions/`,
+  };
+
   return (
     <div className="mx-auto max-w-5xl px-4 sm:px-6">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <div className="pt-14 pb-16">
         <h1 className="font-serif text-3xl text-ink">{c.title}</h1>
 

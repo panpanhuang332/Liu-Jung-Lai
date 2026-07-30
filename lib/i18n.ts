@@ -106,7 +106,8 @@ export const dictionaries: Record<Locale, Dict> = {
       about: "關於作者",
     },
     footer: {
-      statusNote: "本文目前為投稿中之手稿（manuscript under review），尚未正式發表。",
+      statusNote:
+        "本站各篇論文依其頁面標示之狀態呈現（投稿中手稿或研究進行中之工作論文），均尚未正式發表。",
       rights: "版權所有",
     },
     underConstruction: "此頁面建置中",
@@ -132,7 +133,8 @@ export const dictionaries: Record<Locale, Dict> = {
       about: "About",
     },
     footer: {
-      statusNote: "This paper is currently a manuscript under review and has not been formally published.",
+      statusNote:
+        "Papers on this site carry the status shown on their pages (manuscript under review, or working manuscript with research in progress); none has been formally published.",
       rights: "All rights reserved",
     },
     underConstruction: "This page is under construction",

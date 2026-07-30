@@ -76,8 +76,21 @@ export default async function QaPage({
   const c = copy[locale];
   const items = publishedQa(locale);
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: c.title,
+    description: c.description,
+    inLanguage: locale === "zh" ? "zh-Hant" : "en",
+    url: `${siteUrl}/${locale}/qa/`,
+  };
+
   return (
     <div className="mx-auto max-w-5xl px-4 sm:px-6">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <div className="pt-14 pb-16">
         <h1 className="font-serif text-3xl text-ink">{c.title}</h1>
         <p className="mt-4 max-w-prose text-muted leading-relaxed">{c.intro}</p>
