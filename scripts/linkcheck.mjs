@@ -27,9 +27,14 @@ for (const file of htmlFiles) {
   pages.set(url, { ids, links, file });
 }
 
+// When the build used a GitHub Pages basePath, internal hrefs carry the
+// prefix but out/ paths do not — strip it before matching.
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 function resolve(href, fromUrl) {
   if (href.startsWith("http") || href.startsWith("mailto:")) return { external: true, href };
   let [p, hash] = href.split("#");
+  if (BASE && (p === BASE || p.startsWith(BASE + "/"))) p = p.slice(BASE.length) || "/";
   if (p === "") p = fromUrl; // same-page anchor
   if (!p.startsWith("/")) p = path.posix.join(fromUrl, p);
   if (!p.endsWith("/") && !p.includes(".")) p += "/";

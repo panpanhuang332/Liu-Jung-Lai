@@ -4,3 +4,9 @@ out/
 *.tsbuildinfo
 next-env.d.ts
 .DS_Store
+
+# test artifacts (screenshots, reports) — never commit
+test-results/
+artifacts/
+playwright-report/
+undefined/
