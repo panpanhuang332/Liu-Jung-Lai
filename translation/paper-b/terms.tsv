@@ -1,0 +1,109 @@
+english	中文	首次出現位置	狀態	備註
+AI workflow integration depth	AI 工作流程整合深度	Title	proposed	種子術語；依原稿核對後採用
+perceived organizational implementation success	知覺組織導入成功	§1	proposed	種子術語；construct 全稱
+perceived role replaceability	知覺角色可替代性	Title	proposed	種子術語
+integration–replaceability paradox	整合—可替代性弔詭	Title	proposed	種子術語；paradox 沿 Paper A 譯「弔詭」（automation–augmentation paradox → 自動化—增益弔詭）
+credible role-redesign commitment	可信的角色再設計承諾	§1	inherited-confirmed	Paper A 已核定（2026-07-27）
+role threat appraisal	角色威脅評估	Title	inherited-confirmed	Paper A 已核定
+task–role overlap	任務—角色重疊度	—	inherited-confirmed	Paper A 已核定（本稿正文未出現，保留備查）
+moderated mediation	調節式中介	§1	proposed	種子術語
+second-stage moderated mediation	第二階段調節式中介	§3.3	proposed	承上，加「第二階段」
+staged presentation	分階段呈現	§1	proposed	種子術語
+staged randomization	分階段隨機分派	§4.1	proposed	比照 staged presentation
+manipulation check	操弄檢核	§4.3	proposed	種子術語
+commitment substantiation	承諾的可驗證佐證	§1	proposed	種子術語；作變項名時用「承諾佐證程度」，見備註列
+role-redesign commitment substantiation	角色再設計承諾之可驗證佐證	§3.3	proposed	H4/H5 變項全稱；low/high substantiation 譯「低／高佐證」
+substantiated commitment	具佐證的承諾	§1	proposed
+routinization	例行化	§2.1	proposed	Cooper & Zmud 階段
+infusion	深化滲透	§2.1	needs-author-review	另可譯「注入」；全稿統一「深化滲透」
+assimilation	同化	§2.1	needs-author-review	技術同化文獻慣用；或譯「吸納」；全稿統一「同化」
+routinized	例行化	§2.1	proposed
+standardized	標準化	§1	proposed
+system-connected / connected to organizational systems	系統串接／與組織系統串接	§1	proposed
+embedded across interdependent workflow stages	嵌入相互依存的工作流程階段	§1	proposed
+codification	符碼化	§2.2	needs-author-review	Kogut & Zander；另有「編碼化」譯法；全稿統一「符碼化」
+organizational routines	組織例規	§2.2	proposed	Feldman & Pentland
+organizational memory	組織記憶	§2.2	proposed
+incumbent / incumbent dependence	現任者／對現任者的依賴	§1	proposed	「現任者」指目前擔任該角色的人
+non-evaluative inference	非評價性推論	§1	proposed
+descriptive inference	描述性推論	§2.2	proposed
+appraisal	評估	§2.4	inherited-confirmed	Paper A：primary appraisal → 初級評估
+primary appraisal	初級評估	§2.4	inherited-confirmed	Paper A 已核定
+secondary appraisal	次級評估	§2.4	inherited-confirmed	Paper A 已核定
+coping resources	因應資源	§2.4	inherited-confirmed	Paper A 已核定
+cognitive appraisal theory	認知評估理論	§2.4	inherited-confirmed	Paper A 已核定
+job insecurity	工作不安全感	§1	inherited-confirmed	Paper A 已核定
+STARA awareness	STARA 覺察	§1	inherited-confirmed	Paper A 已核定
+AI-as-substitute frame	「AI 即替代」框架	§1	inherited-confirmed	Paper A 已核定
+technological frames	科技框架	§1	inherited-confirmed	Paper A 已核定
+sensemaking	意義建構	§1	inherited-confirmed	Paper A 已核定
+signaling theory	訊號理論	§1	proposed	Spence; Connelly et al.
+signal / dual signaling	訊號／雙重訊號	§1	proposed
+behavioral integrity	行為誠信	§1	inherited-confirmed	Paper A 已核定
+word–deed (in)consistency / words matched by deeds	言行（不）一致	§2.5	inherited-confirmed	Paper A 已核定
+information asymmetry	資訊不對稱	§2.5	proposed
+boundary condition	邊界條件	§1	inherited-confirmed	Paper A 已核定
+employment security	僱用安全	§1	inherited-confirmed	Paper A 已核定
+market value of expertise	專業能力的市場價值	§1	inherited-confirmed	Paper A 已核定
+role autonomy	角色自主性	§1	inherited-confirmed	Paper A 已核定
+occupational identity (and status)	職業身分（與地位）	§1	inherited-confirmed	Paper A 已核定
+automation–augmentation paradox	自動化—增益弔詭	§1	inherited-confirmed	Paper A 已核定
+algorithmic management	演算法管理	§1	inherited-confirmed	Paper A 已核定
+mediator / mediation	中介變項／中介	§1	proposed
+moderator / moderation	調節變項／調節	§1	proposed
+indirect effect	間接效果	§3.2	proposed
+conditional indirect effect	條件化間接效果	§3.3	proposed
+index of moderated mediation	調節式中介指標	§4.6	proposed
+direct effect / total effect	直接效果／總效果	§3.2	proposed
+between-subjects	受試者間	§1	proposed	實驗設計慣用
+scenario experiment	情境實驗	Title	proposed
+2 × 2 between-subjects scenario experiment	2 × 2 受試者間情境實驗	§1	proposed
+filler task	填充作業	§1	proposed
+instructed-response attention check	指示作答注意力檢核	§4.2	proposed
+comprehension check	理解檢核	§4.2	proposed
+suspicion probe / funnel suspicion probe	疑心探查／漏斗式疑心探查	§4.3	proposed
+debriefing	事後說明	§4.3	proposed	研究倫理慣用
+informed consent	知情同意	§4.7	proposed
+preregistration / preregistered	預先登錄	§4.2	proposed
+randomization blocks / blocked randomization	隨機分派區組／區組隨機分派	§4.2	proposed
+cohort	班隊（cohort）	§4.2	needs-author-review	指進修部課程班級群；首譯附原文
+effect coding	效果編碼	§4.6	proposed
+grand-mean centering / mean-centered	總平均置中／置中	§4.6	proposed
+percentile bootstrap confidence interval	百分位拔靴法信賴區間	§4.6	proposed	bootstrap 譯「拔靴法」，全稿統一
+cluster-robust inference	叢集穩健推論	§4.6	proposed
+wild-cluster bootstrap	wild cluster 拔靴法	§4.6	needs-author-review	統計方法名，保留英文核心詞
+confirmatory factor analysis (CFA)	驗證性因素分析	§4.4	inherited-confirmed	Paper A 已核定
+measurement invariance (configural / metric / scalar)	測量恆等性（型態／度量／純量）	§4.4	proposed
+full-information maximum likelihood	完全訊息最大概似法	§4.4	proposed
+robust maximum likelihood (MLR)	穩健最大概似法（MLR）	§5	proposed
+Cronbach's alpha / McDonald's omega	Cronbach's α／McDonald's ω	§4.4	proposed	係數名保留原文符號
+Spearman–Brown	Spearman–Brown 公式	§4.4	proposed
+equivalence bounds / TOST	等值界限／TOST 雙單尾檢定	§4.3	proposed
+manipulation-check items	操弄檢核題項	§4.4	proposed
+diagnostic items / checks	診斷題項／診斷檢核	§4.4	proposed
+perceived commitment credibility	知覺承諾可信度	§1	proposed
+content recognition	內容辨識	§4.3	proposed	診斷檢核之一
+monitoring perception	監控知覺	§4.3	proposed
+realism (check)	真實感（檢核）	§4.4	proposed
+attrition / differential attrition	流失／差異性流失	§4.2	proposed
+randomization-preserving analysis principle	保留隨機分派之分析原則	§4.2	proposed
+smallest effect of theoretical interest	最小理論關注效果量	§4.2	proposed
+Monte Carlo power simulation	蒙地卡羅統計檢定力模擬	§4.2	proposed	power 譯「統計檢定力」
+statistical power	統計檢定力	§4.2	proposed
+intersection–union rule	交集—聯集規則	§5	proposed
+dual-perception signature	雙重知覺表徵	§3.1	needs-author-review	signature 亦可譯「印記／特徵」；全稿統一「表徵」並於首見附原文
+headcount logic	人力員額邏輯	§2.4	needs-author-review
+knowledge-intensive occupations	知識密集職業	§1	proposed
+professional services firm	專業服務公司	§4.3	proposed
+project analyst	專案分析師	§4.3	proposed	情境角色名
+working adults	在職成人	§1	proposed
+continuing-education degree program	進修學位課程	§4.2	proposed
+exploratory threat components	探索性威脅成分	App B	proposed
+contribution distinctiveness	貢獻獨特性	App B	proposed	RTe4 標籤
+local dependence	局部相依	App B	proposed	測量術語
+committee translation	委員會翻譯法	§4.3	proposed
+back-translation	回譯	§4.3	proposed
+cognitive interview	認知訪談	§4.3	proposed
+carryover (measurement-induced)	（測量引致的）延續效應	§1	proposed
+hypothesis guessing	假設猜測	§1	proposed
+paradox	弔詭	§2.3	inherited-confirmed	沿 Paper A「自動化—增益弔詭」譯法
