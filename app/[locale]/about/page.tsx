@@ -1,49 +1,42 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import Link from "next/link";
 import { languageAlternates, siteUrl, type Locale, ogImage } from "@/lib/i18n";
 import { author } from "@/content/author";
 import { featuredPapers } from "@/content/papers";
 import AuthorPhoto from "@/components/AuthorPhoto";
+import PaperCard from "@/components/PaperCard";
 
 const copy = {
   zh: {
     title: "關於作者",
     description:
-      "賴柳蓉（Liu-Jung Lai）：建國科技大學經營管理系。研究生成式 AI 導入、組織意義建構、角色威脅評估與科技採用。",
-    nameLabel: "姓名",
-    affiliationLabel: "單位",
-    locationLabel: "所在地",
+      "賴柳蓉（Liu-Jung Lai）：建國科技大學經營管理系。研究生成式 AI 導入過程中，組織如何塑造員工對科技、角色與未來工作的理解。",
+    introHeading: "研究簡介",
+    coreTopicsHeading: "核心研究主題",
+    extendedTopicsHeading: "延伸研究主題",
+    worksHeading: "代表性研究作品",
+    worksNote: "兩篇平行的獨立研究，權重相當，可分別閱讀。",
+    linksHeading: "學術連結",
+    linkPapers: "論文列表",
+    linkCite: "引用頁",
     orcidLabel: "ORCID",
-    emailLabel: "聯絡信箱",
-    statementLabel: "研究主張",
-    interestsLabel: "研究興趣",
-    worksLabel: "學術作品",
-    wipLabel: "工作論文與研究計畫",
-    wipNote:
-      "《整合—可替代性弔詭》為研究進行中之工作論文：實驗設計、材料與量表題項池已封版，資料蒐集尚未開始。",
-    linksLabel: "外部學術連結",
-    askLabel: "向作者提問",
-    askNote: "如對論文內容或研究方向有疑問，歡迎透過讀者提問頁提出。",
+    emailLabel: "Email",
   },
   en: {
     title: "About the Author",
     description:
-      "Liu-Jung Lai, Department of Business Management, Chienkuo Technology University. Research on generative AI implementation, organizational sensemaking, role threat appraisal, and technology adoption.",
-    nameLabel: "Name",
-    affiliationLabel: "Affiliation",
-    locationLabel: "Location",
+      "Liu-Jung Lai, Department of Business Management, Chienkuo Technology University. Researching how organizations shape employees' understanding of technology, roles, and future work during generative AI implementation.",
+    introHeading: "Research",
+    coreTopicsHeading: "Core research themes",
+    extendedTopicsHeading: "Extended themes",
+    worksHeading: "Selected works",
+    worksNote: "Two parallel, independent studies of equal standing; each can be read on its own.",
+    linksHeading: "Academic links",
+    linkPapers: "Papers",
+    linkCite: "Cite",
     orcidLabel: "ORCID",
-    emailLabel: "Contact",
-    statementLabel: "Research statement",
-    interestsLabel: "Research interests",
-    worksLabel: "Academic works",
-    wipLabel: "Working manuscripts & research in progress",
-    wipNote:
-      "“The Integration–Replaceability Paradox” is a working manuscript with research in progress: the experimental design, materials, and item pools are sealed; data collection has not yet begun.",
-    linksLabel: "External academic links",
-    askLabel: "Ask the author",
-    askNote:
-      "Questions about the papers or the research direction are welcome through the reader question page.",
+    emailLabel: "Email",
   },
 } as const;
 
@@ -78,8 +71,11 @@ export default async function AboutPage({
 }) {
   const { locale } = (await params) as { locale: Locale };
   const c = copy[locale];
+  const other: Locale = locale === "zh" ? "en" : "zh";
   const works = featuredPapers();
 
+  // Person.image is deliberately omitted: the page visual is a symbolic
+  // research avatar, not a portrait of the author.
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ProfilePage",
@@ -94,156 +90,180 @@ export default async function AboutPage({
     },
   };
 
+  const metaItems: { label: string; node: ReactNode }[] = [
+    { label: locale === "zh" ? "單位" : "Affiliation", node: author.affiliation[locale] },
+    { label: locale === "zh" ? "所在地" : "Location", node: author.location[locale] },
+    {
+      label: c.orcidLabel,
+      node: (
+        <a
+          href={`https://orcid.org/${author.orcid}`}
+          rel="me external"
+          className="text-accent underline underline-offset-4 hover:no-underline"
+        >
+          {author.orcid}
+        </a>
+      ),
+    },
+    {
+      label: c.emailLabel,
+      node: (
+        <a
+          href={`mailto:${author.email}`}
+          className="text-accent underline underline-offset-4 hover:no-underline"
+        >
+          {author.email}
+        </a>
+      ),
+    },
+  ];
+
   return (
     <div className="mx-auto max-w-5xl px-4 sm:px-6">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <article className="pt-14 pb-16">
-        <h1 className="font-serif text-3xl text-ink">{c.title}</h1>
-
-        <div className="mt-8 flex flex-col sm:flex-row gap-8">
-          <div className="shrink-0">
-            <AuthorPhoto locale={locale} size={160} />
+      <article className="pt-12 sm:pt-14 pb-16">
+        {/* ---- Hero: avatar left, identity right (stacked on mobile) ---- */}
+        <header className="flex flex-col sm:flex-row gap-7 sm:gap-10">
+          <div className="shrink-0 self-start">
+            <AuthorPhoto locale={locale} />
           </div>
-          <dl className="space-y-5 text-ink/90 min-w-0">
-            <div>
-              <dt className="text-sm font-medium text-muted uppercase tracking-wider">{c.nameLabel}</dt>
-              <dd className="mt-1">
-                {locale === "zh" ? (
-                  <>
-                    {author.name.zh}
-                    <span lang="en" className="text-muted">（{author.name.en}）</span>
-                  </>
-                ) : (
-                  <span lang="en">{author.name.en}</span>
-                )}
-              </dd>
-            </div>
-            <div>
-              <dt className="text-sm font-medium text-muted uppercase tracking-wider">{c.affiliationLabel}</dt>
-              <dd className="mt-1">
-                {author.affiliation[locale]}
-                {locale === "zh" && (
-                  <>
-                    <br />
-                    <span lang="en" className="text-muted">{author.affiliation.en}</span>
-                  </>
-                )}
-              </dd>
-            </div>
-            <div>
-              <dt className="text-sm font-medium text-muted uppercase tracking-wider">{c.locationLabel}</dt>
-              <dd className="mt-1">{author.location[locale]}</dd>
-            </div>
-            <div>
-              <dt className="text-sm font-medium text-muted uppercase tracking-wider">{c.orcidLabel}</dt>
-              <dd className="mt-1">
-                <a
-                  href={`https://orcid.org/${author.orcid}`}
-                  rel="me external"
-                  className="text-accent underline underline-offset-4 hover:no-underline"
-                >
-                  {author.orcid}
-                </a>
-              </dd>
-            </div>
-            <div>
-              <dt className="text-sm font-medium text-muted uppercase tracking-wider">{c.emailLabel}</dt>
-              <dd className="mt-1">
-                <a
-                  href={`mailto:${author.email}`}
-                  className="text-accent underline underline-offset-4 hover:no-underline"
-                >
-                  {author.email}
-                </a>
-              </dd>
-            </div>
-          </dl>
-        </div>
-
-        <section className="mt-10 max-w-prose" aria-labelledby="stmt-h">
-          <h2 id="stmt-h" className="text-sm font-medium text-muted uppercase tracking-wider">
-            {c.statementLabel}
-          </h2>
-          <p className="mt-2 leading-relaxed text-ink/90">{author.statement[locale]}</p>
-        </section>
-
-        <section className="mt-8 max-w-prose" aria-labelledby="int-h">
-          <h2 id="int-h" className="text-sm font-medium text-muted uppercase tracking-wider">
-            {c.interestsLabel}
-          </h2>
-          <ul className="mt-2 flex flex-wrap gap-2">
-            {author.interests[locale].map((t) => (
-              <li key={t} className="border border-line bg-surface/60 px-2.5 py-1 text-sm text-ink/85">
-                {t}
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        <section className="mt-10" aria-labelledby="works-h">
-          <h2 id="works-h" className="text-sm font-medium text-muted uppercase tracking-wider">
-            {c.worksLabel}
-          </h2>
-          <ul className="mt-3 space-y-5 max-w-prose">
-            {works.map((p) => (
-              <li key={p.slug}>
-                <Link
-                  href={`/${locale}${p.routes.overview}/`}
-                  className="font-serif text-lg text-ink hover:text-accent"
-                >
-                  <span lang="en">{p.titleMain.en}</span>
-                </Link>
-                <p className="text-sm text-muted mt-0.5">{p.title.zh}</p>
-                <p className="text-sm text-muted mt-1">
-                  {p.type[locale]}
-                  <span className="mx-2" aria-hidden="true">·</span>
-                  {p.status[locale]}
+          <div className="min-w-0">
+            {locale === "zh" ? (
+              <>
+                <h1 className="font-serif text-4xl sm:text-5xl leading-tight text-ink">
+                  {author.name.zh}
+                </h1>
+                <p lang="en" className="mt-1.5 font-serif text-xl sm:text-2xl text-ink/75">
+                  {author.name.en}
                 </p>
-              </li>
-            ))}
-          </ul>
+              </>
+            ) : (
+              <>
+                <h1 lang="en" className="font-serif text-4xl sm:text-5xl leading-tight text-ink">
+                  {author.name.en}
+                </h1>
+                <p lang="zh-Hant" className="mt-1.5 font-serif text-xl sm:text-2xl text-ink/75">
+                  {author.name.zh}
+                </p>
+              </>
+            )}
+            <p className="mt-5 max-w-[40ch] font-serif text-lg leading-relaxed text-ink/90">
+              {author.positioning[locale]}
+            </p>
+            {/* metadata row */}
+            <dl className="mt-6 border-t border-line pt-4 space-y-1.5">
+              {metaItems.map((m) => (
+                <div key={m.label} className="flex gap-3 text-sm">
+                  <dt className="w-16 shrink-0 text-xs uppercase tracking-wider text-muted pt-0.5">
+                    {m.label}
+                  </dt>
+                  <dd className="min-w-0 text-ink/90">{m.node}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </header>
+
+        {/* ---- Pull quote: the page's memory point ---- */}
+        <blockquote className="claim mt-12 max-w-prose">
+          <p className="font-serif text-xl sm:text-2xl leading-relaxed text-ink">
+            {locale === "zh" ? `「${author.quote.zh}」` : `“${author.quote.en}”`}
+          </p>
+          <p lang={other === "zh" ? "zh-Hant" : "en"} className="mt-2 font-serif text-sm text-muted">
+            {locale === "zh" ? `“${author.quote.en}”` : `「${author.quote.zh}」`}
+          </p>
+        </blockquote>
+
+        {/* ---- Research intro: two short paragraphs ---- */}
+        <section className="mt-12 max-w-prose" aria-labelledby="intro-h">
+          <h2 id="intro-h" className="text-xs font-medium text-muted uppercase tracking-wider">
+            {c.introHeading}
+          </h2>
+          {author.introParagraphs[locale].map((p, i) => (
+            <p key={i} className="mt-4 leading-relaxed text-ink/90">
+              {p}
+            </p>
+          ))}
         </section>
 
-        <section className="mt-10 max-w-prose" aria-labelledby="wip-h">
-          <h2 id="wip-h" className="text-sm font-medium text-muted uppercase tracking-wider">
-            {c.wipLabel}
+        {/* ---- Topics: core cards + extended tags ---- */}
+        <section className="mt-12" aria-labelledby="core-h">
+          <h2 id="core-h" className="text-xs font-medium text-muted uppercase tracking-wider">
+            {c.coreTopicsHeading}
           </h2>
-          <p className="mt-2 text-sm leading-relaxed text-ink/90">{c.wipNote}</p>
-        </section>
-
-        <section className="mt-10 max-w-prose" aria-labelledby="links-h">
-          <h2 id="links-h" className="text-sm font-medium text-muted uppercase tracking-wider">
-            {c.linksLabel}
-          </h2>
-          <ul className="mt-2 text-sm space-y-1">
-            {author.links.map((l) => (
-              <li key={l.href}>
-                <a
-                  href={l.href}
-                  rel="me external"
-                  className="text-accent underline underline-offset-4 hover:no-underline"
+          <ul className="mt-4 grid gap-3 sm:grid-cols-3">
+            {author.coreTopics.map((t) => (
+              <li key={t.label.en}>
+                <Link
+                  href={`/${locale}${t.href}/`}
+                  className="group block h-full border border-line bg-surface/50 px-4 py-3.5 hover:border-accent/60 focus-visible:border-accent/60"
                 >
-                  {l.label[locale]}
-                </a>
+                  <span className="block h-px w-6 bg-accent/70 mb-2.5" aria-hidden="true" />
+                  <span className="font-serif text-[0.98rem] leading-snug text-ink group-hover:text-accent">
+                    {t.label[locale]}
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <h3 id="ext-h" className="mt-6 text-xs font-medium text-muted uppercase tracking-wider">
+            {c.extendedTopicsHeading}
+          </h3>
+          <ul className="mt-3 flex flex-wrap gap-2" aria-labelledby="ext-h">
+            {author.extendedTopics.map((t) => (
+              <li
+                key={t.label.en}
+                className="border-b border-line px-1 py-0.5 text-sm text-ink/80"
+              >
+                {t.label[locale]}
               </li>
             ))}
           </ul>
         </section>
 
-        <section className="mt-10 max-w-prose border-t border-line pt-6" aria-labelledby="ask-h">
-          <h2 id="ask-h" className="text-sm font-medium text-muted uppercase tracking-wider">
-            {c.askLabel}
+        {/* ---- Representative works: parallel cards ---- */}
+        <section className="mt-14 border-t border-line pt-8" aria-labelledby="works-h">
+          <h2 id="works-h" className="font-serif text-2xl text-ink">
+            {c.worksHeading}
           </h2>
-          <p className="mt-2 text-sm leading-relaxed text-muted">{c.askNote}</p>
-          <p className="mt-2 text-sm">
-            <Link
-              href={`/${locale}/questions/`}
-              className="text-accent underline underline-offset-4 hover:no-underline"
+          <p className="mt-2 text-sm text-muted">{c.worksNote}</p>
+          <div className="mt-6 grid gap-6 md:grid-cols-2 items-stretch">
+            {works.map((p) => (
+              <PaperCard key={p.slug} locale={locale} paper={p} />
+            ))}
+          </div>
+        </section>
+
+        {/* ---- Academic links ---- */}
+        <section className="mt-12 border-t border-line pt-6" aria-labelledby="links-h">
+          <h2 id="links-h" className="text-xs font-medium text-muted uppercase tracking-wider">
+            {c.linksHeading}
+          </h2>
+          <p className="mt-3 text-sm text-ink/90">
+            <a
+              href={`https://orcid.org/${author.orcid}`}
+              rel="me external"
+              className="underline underline-offset-4 hover:text-accent"
             >
-              {c.askLabel} →
+              {c.orcidLabel}
+            </a>
+            <span className="mx-2.5 text-muted" aria-hidden="true">·</span>
+            <a
+              href={`mailto:${author.email}`}
+              className="underline underline-offset-4 hover:text-accent"
+            >
+              {c.emailLabel}
+            </a>
+            <span className="mx-2.5 text-muted" aria-hidden="true">·</span>
+            <Link href={`/${locale}/papers/`} className="underline underline-offset-4 hover:text-accent">
+              {c.linkPapers}
+            </Link>
+            <span className="mx-2.5 text-muted" aria-hidden="true">·</span>
+            <Link href={`/${locale}/cite/`} className="underline underline-offset-4 hover:text-accent">
+              {c.linkCite}
             </Link>
           </p>
         </section>
