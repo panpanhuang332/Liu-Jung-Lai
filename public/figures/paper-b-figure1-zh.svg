@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1880 1060" role="img" aria-label="圖1：整合—可替代性弔詭之研究模型（中文版）">
+  <title>圖 1：整合—可替代性弔詭之研究模型（中文重建版，待作者審定）</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M1,1 L11,6 L1,11 Z" fill="#1c1b19"/>
+    </marker>
+    <marker id="arrowD" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M1,1 L11,6 L1,11 Z" fill="#3a3835"/>
+    </marker>
+  </defs>
+  <style>
+    .box   { fill:#ffffff; stroke:#1c1b19; stroke-width:2.5; rx:10; }
+    .boxM  { fill:#efeeec; stroke:#1c1b19; stroke-width:2.5; }
+    .t     { font-family:"Noto Serif TC","PingFang TC","Microsoft JhengHei",serif; fill:#1c1b19; }
+    .h     { font-size:34px; font-weight:700; }
+    .s     { font-size:26px; fill:#3a3835; }
+    .lab   { font-size:30px; font-weight:700; }
+    .par   { font-size:30px; font-weight:700; font-style:italic; }
+    .parS  { font-size:26px; font-style:italic; fill:#3a3835; }
+    .ln    { stroke:#1c1b19; stroke-width:3; fill:none; }
+    .lnD   { stroke:#3a3835; stroke-width:3; fill:none; stroke-dasharray:12 10; }
+    .brk   { stroke:#8a8781; stroke-width:2.5; fill:none; }
+  </style>
+  <rect width="1880" height="1060" fill="#ffffff"/>
+
+  <!-- top: manipulated factor X -->
+  <rect x="460" y="40" width="960" height="200" rx="10" class="boxM"/>
+  <text x="940" y="105" text-anchor="middle" class="t h">AI 工作流程整合深度</text>
+  <text x="940" y="150" text-anchor="middle" class="t s">（操弄：低 vs. 高）</text>
+  <text x="940" y="200" text-anchor="middle" class="t s">例行化 · 標準化 · 系統串接 · 嵌入工作流程</text>
+
+  <!-- arrows H1a / H1b -->
+  <line x1="740" y1="240" x2="540" y2="420" class="ln" marker-end="url(#arrow)"/>
+  <text x="590" y="310" text-anchor="middle" class="t lab">H1a</text>
+  <line x1="1140" y1="240" x2="1340" y2="420" class="ln" marker-end="url(#arrow)"/>
+  <text x="1290" y="310" text-anchor="middle" class="t lab">H1b</text>
+
+  <!-- outcome perceptions -->
+  <rect x="170" y="425" width="670" height="145" rx="10" class="box"/>
+  <text x="505" y="485" text-anchor="middle" class="t h">知覺組織導入成功</text>
+  <text x="505" y="535" text-anchor="middle" class="t s">Perceived Organizational Implementation Success</text>
+
+  <rect x="1040" y="425" width="670" height="145" rx="10" class="box"/>
+  <text x="1375" y="485" text-anchor="middle" class="t h">知覺角色可替代性</text>
+  <text x="1375" y="535" text-anchor="middle" class="t s">Perceived Role Replaceability</text>
+
+  <!-- bracket labelling the paradox -->
+  <path d="M185,600 L185,622 L1160,622 M1250,622 L1695,622 L1695,600" class="brk"/>
+  <text x="940" y="672" text-anchor="middle" class="t par">整合—可替代性弔詭</text>
+  <text x="940" y="712" text-anchor="middle" class="t parS">源自共同結構來源的雙重知覺</text>
+
+  <!-- H2 arrow down to threat -->
+  <line x1="1375" y1="570" x2="1375" y2="880" class="ln" marker-end="url(#arrow)"/>
+  <text x="1430" y="640" text-anchor="start" class="t lab">H2</text>
+
+  <!-- moderator W -->
+  <rect x="150" y="790" width="700" height="185" rx="10" class="boxM"/>
+  <text x="500" y="855" text-anchor="middle" class="t h">角色再設計承諾之可驗證佐證</text>
+  <text x="500" y="900" text-anchor="middle" class="t s">Role-Redesign Commitment Substantiation</text>
+  <text x="500" y="945" text-anchor="middle" class="t s">（操弄：低 vs. 高）</text>
+
+  <!-- H4 dashed arrow onto the H2 path -->
+  <line x1="850" y1="845" x2="1358" y2="742" class="lnD" marker-end="url(#arrowD)"/>
+  <text x="1090" y="762" text-anchor="middle" class="t lab">H4</text>
+
+  <!-- outcome: role threat appraisal -->
+  <rect x="1040" y="885" width="670" height="130" rx="10" class="box"/>
+  <text x="1375" y="940" text-anchor="middle" class="t h">角色威脅評估</text>
+  <text x="1375" y="988" text-anchor="middle" class="t s">Role Threat Appraisal</text>
+</svg>
