@@ -13,6 +13,7 @@ import { getPaper } from "@/lib/paper";
 import PaperView from "@/components/paper/PaperView";
 import Toc from "@/components/paper/Toc";
 import BilingualToggle from "@/components/paper/BilingualToggle";
+import PaperFeatureLinks from "@/components/paper/PaperFeatureLinks";
 
 const copy = {
   zh: {
@@ -100,6 +101,7 @@ export default async function PaperPage({
           </div>
         </aside>
         <div className="min-w-0">
+          <PaperFeatureLinks locale={locale} />
           <details className="xl:hidden mb-6 border border-line">
             <summary className="cursor-pointer px-4 py-2 text-sm font-medium">
               {c.tocTitle}

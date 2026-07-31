@@ -11,6 +11,7 @@ import {
 } from "@/lib/i18n";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
+import PaperContextNav from "@/components/nav/PaperContextNav";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -67,6 +68,7 @@ export default async function LocaleLayout({
           {dict.skipToContent}
         </a>
         <SiteHeader locale={locale} />
+        <PaperContextNav locale={locale} />
         <main id="main" className="flex-1 w-full">
           {children}
         </main>
